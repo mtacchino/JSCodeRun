@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Header } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import CodeEditor from './src/components/CodeEditor';
 import Output from './src/components/Output';
 
@@ -20,17 +20,23 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
+        <View
+          style={{
+            height: 70,
+            width: '100%',
+            paddingTop: 20,
+            backgroundColor: 'gray'
+          }}
+        >
+          <Text>Hi</Text>
+        </View>
         <View
           style={{
             flex: 1,
             alignSelf: 'stretch'
           }}
         >
-          <CodeEditor
-            code={this.state.code}
-            handleCodeChange={this.handleCodeChange}
-          />
+          <CodeEditor />
         </View>
         <View style={{ flex: 1 }}>
           <Output code={this.state.code} />

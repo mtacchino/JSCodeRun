@@ -12,10 +12,9 @@ const Output = ({ code }) => {
   try {
     const output = new Function(code);
     output();
-  } catch(e) {
-      out = e.toString();
+  } catch (e) {
+    out = e.toString();
   }
-  console.log(out)
   return <Text>{out}</Text>;
 };
 

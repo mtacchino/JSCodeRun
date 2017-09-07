@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "20.0.0"
+    "name": "JavaScript Runner",
+    "slug": "javascriptrunner",
+    "icon": "./assets/app-icon.png",
+    "sdkVersion": "20.0.0",
+    "version": "1.0.0",
+    "ios": {
+      "bundleIdentifier": "me.tacchino.javascriptrunner"
+    },
+    "android": {
+      "package": "me.tacchino.javascriptrunner"
+    }
   }
 }
