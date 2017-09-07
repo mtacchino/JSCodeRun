@@ -1,7 +1,5 @@
 import React from 'react';
 import { TextInput, Text, StyleSheet } from 'react-native';
-import SyntaxHighlighter from '../react-native-syntax-highlighter/src/index';
-import { docco } from '../react-syntax-highlighter/src/styles';
 
 const styles = StyleSheet.create({
   keywordStyle: {
