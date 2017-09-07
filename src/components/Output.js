@@ -1,21 +1,42 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View, ActivityIndicator, StyleSheet } from 'react-native';
 
-const out = '';
-const log = console.log;
-console.log = val => {
-  out = val;
-  //log(arguments);
-};
-
-const Output = ({ code }) => {
-  try {
-    const output = new Function(code);
-    output();
-  } catch (e) {
-    out = e.toString();
+const successStyle = StyleSheet.create({
+  container: {
+    backgroundColor: 'blue'
+  },
+  text: {
+    color: 'black'
   }
-  return <Text>{out}</Text>;
+});
+
+const errorStyle = StyleSheet.create({
+  container: {
+    backgroundColor: 'red'
+  },
+  text: {
+    color: 'white'
+  }
+});
+
+const Output = ({ output, status }) => {
+  if (!output.length) {
+    return null;
+  }
+  return (
+    <View>
+      {output.map((line, i) => {
+        const styles = line.status === 'ERROR' ? errorStyle : successStyle;
+        return (
+          <View style={styles.container}>
+            <Text key={i} style={styles.text}>
+              {line.message}
+            </Text>
+          </View>
+        );
+      })}
+    </View>
+  );
 };
 
 export default Output;
