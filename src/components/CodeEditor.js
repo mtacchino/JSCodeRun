@@ -1,9 +1,16 @@
 import React from 'react';
 import { TextInput, Text, StyleSheet } from 'react-native';
+import * as reservedWords from '../constants/reservedWords';
 
 const styles = StyleSheet.create({
-  keywordStyle: {
+  basicKeywordStyle: {
     color: '#769aa5'
+  },
+  funcKeywordStyle: {
+    color: '#ecf13a'
+  },
+  advancedKeywordStyle: {
+    color: '#a1edd5'
   },
   stringStyle: {
     color: '#cc7832'
@@ -21,7 +28,7 @@ const styles = StyleSheet.create({
 
 const Wrapper = ({ text }) => {
   const words = text.split(
-    /([0-9]+|try|catch|return|console|function|var|let|const|if|".*?"|'.*?'|`.*?`)/g
+    new RegExp(`([0-9]+|${reservedWords.allWords.join('|')}|".*?"|'.*?'|\`.*?\`)`, 'g')
   );
 
   const styleWrappedTexts = words.map((word, i) => {
@@ -29,12 +36,12 @@ const Wrapper = ({ text }) => {
       return null;
     }
 
-    if (
-      ['console', 'function', 'var', 'let', 'const', 'if', 'NaN'].indexOf(
-        word
-      ) >= 0
-    ) {
-      partStyle = styles.keywordStyle;
+    if (reservedWords.basicWords.indexOf(word) >= 0) {
+      partStyle = styles.basicKeywordStyle;
+    } else if (reservedWords.funcWords.indexOf(word) >= 0) {
+      partStyle = styles.funcKeywordStyle;
+    } else if (reservedWords.advancedWords.indexOf(word) >= 0) {
+      partStyle = styles.advancedKeywordStyle;
     } else if (!isNaN(parseInt(word))) {
       partStyle = styles.numberStyle;
     } else if (
@@ -43,8 +50,6 @@ const Wrapper = ({ text }) => {
       (word.startsWith('`') && word.endsWith('`'))
     ) {
       partStyle = styles.stringStyle;
-    } else if (['return', 'try', 'catch'].indexOf(word) >= 0) {
-      partStyle = styles.returnStyle;
     } else {
       partStyle = styles.defaultStyle;
     }
