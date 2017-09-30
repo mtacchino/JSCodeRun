@@ -23,6 +23,11 @@ const styles = StyleSheet.create({
   },
   defaultStyle: {
     color: '#eee'
+  },
+  textInput: {
+    height: '100%',
+    backgroundColor: '#222',
+    color: 'white'
   }
 });
 
@@ -66,11 +71,7 @@ class CodeEditor extends React.Component {
   render() {
     return (
       <TextInput
-        style={{
-          height: '100%',
-          backgroundColor: '#222',
-          color: 'white'
-        }}
+        style={styles.textInput}
         autoCapitalize="none"
         autoCorrect={false}
         multiline

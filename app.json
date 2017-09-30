@@ -3,7 +3,7 @@
     "name": "JavaScript Runner",
     "slug": "javascriptrunner",
     "icon": "./assets/app-icon.png",
-    "sdkVersion": "20.0.0",
+    "sdkVersion": "21.0.0",
     "version": "1.0.0",
     "ios": {
       "bundleIdentifier": "me.tacchino.javascriptrunner"

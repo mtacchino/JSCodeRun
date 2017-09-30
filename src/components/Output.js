@@ -1,8 +1,15 @@
 import React from 'react';
 import { Text, View, ActivityIndicator, StyleSheet } from 'react-native';
 
-const successStyle = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
+    padding: 2,
+    backgroundColor: '#333'
+  }
+});
+
+const successStyle = StyleSheet.create({
+  lineWrapper: {
     backgroundColor: 'blue'
   },
   text: {
@@ -12,6 +19,9 @@ const successStyle = StyleSheet.create({
 
 const errorStyle = StyleSheet.create({
   container: {
+    padding: '10px'
+  },
+  lineWrapper: {
     backgroundColor: 'red'
   },
   text: {
@@ -24,11 +34,11 @@ const Output = ({ output, status }) => {
     return null;
   }
   return (
-    <View>
+    <View style={styles.container}>
       {output.map((line, i) => {
         const styles = line.status === 'ERROR' ? errorStyle : successStyle;
         return (
-          <View style={styles.container}>
+          <View style={styles.lineWrapper}>
             <Text key={i} style={styles.text}>
               {line.message}
             </Text>
