@@ -38,8 +38,8 @@ const Output = ({ output, status }) => {
       {output.map((line, i) => {
         const styles = line.status === 'ERROR' ? errorStyle : successStyle;
         return (
-          <View style={styles.lineWrapper}>
-            <Text key={i} style={styles.text}>
+          <View key={i} style={styles.lineWrapper}>
+            <Text style={styles.text}>
               {line.message}
             </Text>
           </View>

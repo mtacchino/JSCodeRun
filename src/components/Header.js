@@ -8,17 +8,21 @@ const codeData = [
         code: 'console.log("sup")'
     },{
         name: 'Depth First Search',
-        code: 'console.log("sup yo")'
+        code: 'console.log("sup yo")\nconsole.log("again");'
     }
 ];
 
 const ListItem = ({item, onPress}) => 
     <View style={{
         borderBottomWidth: 0.5,
-        borderColor: '#d6d7da',
-        padding: 15
+        borderColor: '#d6d7da'
     }}>
-        <Text onPress={() => onPress(item.code)}>{item.name}</Text>
+        <TouchableOpacity style={{
+            padding: 15
+        }}
+            onPress={() => onPress(item.code)}>
+            <Text>{item.name}</Text>
+        </TouchableOpacity>
     </View>
 
 export default class Header extends Component {
@@ -52,12 +56,13 @@ export default class Header extends Component {
             onRequestClose={() => {this.toggleExamplesModal()}}
         >
             <View style={{marginTop: 20}}>
+                <Text onPress={() => this.toggleExamplesModal()}>Hide Modal</Text>
                 <View style={{borderTopWidth:0.5, borderColor:'#d6d7da'}}>
                     <FlatList
                         data={codeData}
+                        keyExtractor={item => item.name}
                         renderItem={({item}) => <ListItem item={item} onPress={code => {this.props.generateCode(code); this.toggleExamplesModal()}}/>}
                     />
-                    <Text onPress={() => this.toggleExamplesModal()}>Hide Modal</Text>
                 </View>
             </View>
         </Modal>
