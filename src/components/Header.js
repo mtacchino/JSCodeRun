@@ -1,29 +1,31 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Modal, FlatList } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TouchableHighlight, Modal, FlatList, Button } from 'react-native';
+import codeExamples from '../constants/examples.js';
 
-const codeData = [
-    {
-        name: 'Binary Search Tree',
-        code: 'console.log("sup")'
-    },{
-        name: 'Depth First Search',
-        code: 'console.log("sup yo")\nconsole.log("again");'
-    }
-];
+const ListItem = ({item, onPress}) =>
+    <TouchableHighlight style={{
+        paddingHorizontal: 15,
+        paddingVertical: 7
+    }}
+        activeOpacity={0.2}
+        underlayColor="#eee"
+        onPress={() => onPress(item.code)}>
+        <View>
+            <Text>{item.key}</Text>
+            <Text style={{marginLeft: 10, opacity: 0.7}}>Runtime:{item.runtimeComplexity}, Space:{item.spaceComplexity}</Text>
+        </View>
+    </TouchableHighlight>
 
-const ListItem = ({item, onPress}) => 
-    <View style={{
-        borderBottomWidth: 0.5,
-        borderColor: '#d6d7da'
-    }}>
-        <TouchableOpacity style={{
-            padding: 15
+const Separator = () =>
+    <View
+        style={{
+            height: 1,
+            width: "94%",
+            backgroundColor: "#CED0CE",
+            marginLeft: "3%"
         }}
-            onPress={() => onPress(item.code)}>
-            <Text>{item.name}</Text>
-        </TouchableOpacity>
-    </View>
+    />
 
 export default class Header extends Component {
   constructor(props) {
@@ -46,7 +48,7 @@ export default class Header extends Component {
             width: '100%',
             paddingTop: 20,
             paddingHorizontal: 20,
-            backgroundColor: 'white'
+            backgroundColor: '#ddd'
         }}
     >
         <Modal
@@ -55,15 +57,16 @@ export default class Header extends Component {
             visible={this.state.isExamplesModalDisplayed}
             onRequestClose={() => {this.toggleExamplesModal()}}
         >
-            <View style={{marginTop: 20}}>
-                <Text onPress={() => this.toggleExamplesModal()}>Hide Modal</Text>
-                <View style={{borderTopWidth:0.5, borderColor:'#d6d7da'}}>
+            <View style={{marginTop: 20 }}>
+                <Button style={{borderBottomWidth: 1, borderColor:'#d6d7da'}} onPress={() => this.toggleExamplesModal()} title="Done" />
                     <FlatList
-                        data={codeData}
-                        keyExtractor={item => item.name}
+                        data={codeExamples}
+                        ItemSeparatorComponent={() => <Separator />}
+                        ListHeaderComponent={() => <Separator />}
+                        ListFooterComponent={() => <Separator />}
+                        keyExtractor={item => item.key}
                         renderItem={({item}) => <ListItem item={item} onPress={code => {this.props.generateCode(code); this.toggleExamplesModal()}}/>}
                     />
-                </View>
             </View>
         </Modal>
         <View

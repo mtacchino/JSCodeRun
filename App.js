@@ -8,8 +8,8 @@ console.error = val => {
   //log(arguments);
 };
 
-const defaultCode = `
-function fib(n) {
+const defaultCode =
+`function fib(n) {
   if (n === 0 || n === 1) {
     return n;
   }

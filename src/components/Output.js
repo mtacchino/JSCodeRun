@@ -1,37 +1,30 @@
 import React from 'react';
-import { Text, View, ActivityIndicator, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 2,
-    backgroundColor: '#333'
+    padding: 10,
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#ddd'
   }
 });
 
 const successStyle = StyleSheet.create({
-  lineWrapper: {
-    backgroundColor: 'blue'
-  },
   text: {
     color: 'black'
   }
 });
 
 const errorStyle = StyleSheet.create({
-  container: {
-    padding: '10px'
-  },
-  lineWrapper: {
-    backgroundColor: 'red'
-  },
   text: {
-    color: 'white'
+    color: 'red'
   }
 });
 
 const Output = ({ output, status }) => {
   if (!output.length) {
-    return null;
+    return <View style={styles.container}></View>;
   }
   return (
     <View style={styles.container}>
