@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
-import Header from '../components/Header';
+import HeaderBar from '../components/HeaderBar';
 
 const styles = StyleSheet.create({
     container: {
@@ -59,7 +59,7 @@ export default class MainScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
+        <HeaderBar runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
         <View
           style={{
             flex: 1,
@@ -71,7 +71,7 @@ export default class MainScreen extends Component {
             handleCodeChange={this.handleCodeChange}
           />
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: '#ddd'}}>
           <Output output={this.state.output} status={this.state.status} />
         </View>
       </View>

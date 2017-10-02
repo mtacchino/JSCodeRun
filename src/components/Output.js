@@ -1,12 +1,9 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, ScrollView, View, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#ddd'
+    padding: 10
   }
 });
 
@@ -27,7 +24,7 @@ const Output = ({ output, status }) => {
     return <View style={styles.container}></View>;
   }
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {output.map((line, i) => {
         const styles = line.status === 'ERROR' ? errorStyle : successStyle;
         return (
@@ -38,7 +35,7 @@ const Output = ({ output, status }) => {
           </View>
         );
       })}
-    </View>
+    </ScrollView>
   );
 };
 
