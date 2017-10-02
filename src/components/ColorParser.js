@@ -23,8 +23,9 @@ const styles = StyleSheet.create({
   }
 });
 export default ColorParser = ({ text }) => {
+    const wrds = reservedWords.allWords.map(w => '(?:^|[^A-Za-z0-9_])'+w+'(?![A-Za-z0-9_-])');
     const words = text.split(
-      new RegExp(`([0-9]+|${reservedWords.allWords.join('|')}|".*?"|'.*?'|\`.*?\`)`, 'g')
+      new RegExp(`([0-9]+|${wrds.join('|')}|".*?"|'.*?'|\`.*?\`)`, 'g')
     );
   
     const styleWrappedTexts = words.map((word, i) => {
