@@ -1,40 +1,22 @@
 import fibonacci from './code/fibonacci';
+import binaryTreeDfs from './code/binary-tree-dfs';
+import binaryTreeBfs from './code/binary-tree-bfs';
 
 export default exampleData = [
     {
-        key: 'Binary Search Tree',
-        runtimeComplexity: 'O(n)',
-        spaceComplexity: 'O(n)',
-        code: 'console.log("sup")'
-    },{
-        key: 'Depth First Search',
-        runtimeComplexity: 'O(n)',
-        spaceComplexity: 'O(n)',
-        code: 'console.log("sup yo")\nconsole.log("again");'
-    },{
-        key: 'Fibonnaci Sequence',
+        key: 'Fibonnaci - Nth number in sequence',
         runtimeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
         code: fibonacci
-    },{
-        key: 'Depth First Search3',
+    }, {
+        key: 'Binary Tree - Depth-first search (DFS)',
         runtimeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
-        code: 'console.log("sup yo")\nconsole.log("again");'
-    },{
-        key: 'Depth First Search4',
+        code: binaryTreeDfs
+    }, {
+        key: 'Binary Tree - Breadth-first search (BFS)',
         runtimeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
-        code: 'console.log("sup yo")\nconsole.log("again");'
-    },{
-        key: 'Depth First Search5',
-        runtimeComplexity: 'O(n)',
-        spaceComplexity: 'O(n)',
-        code: 'console.log("sup yo")\nconsole.log("again");'
-    },{
-        key: 'Depth First Search6',
-        runtimeComplexity: 'O(n)',
-        spaceComplexity: 'O(n)',
-        code: 'console.log("sup yo")\nconsole.log("again");'
+        code: binaryTreeBfs
     }
 ];

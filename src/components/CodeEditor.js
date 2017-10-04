@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#222',
     color: 'white',
-    padding: 5
+    padding: 5,
+    textAlignVertical: 'top'
   }
 });
 
@@ -19,6 +20,7 @@ class CodeEditor extends Component {
         autoCapitalize="none"
         autoCorrect={false}
         multiline
+        blurOnSubmit={false}
         onChangeText={this.props.handleCodeChange}
       >
         <ColorParser text={this.props.code} />

@@ -18,26 +18,32 @@ const styles = StyleSheet.create({
   numberStyle: {
     color: '#a5c25c'
   },
+  commentStyle: {
+    color: '#888'
+  },
   defaultStyle: {
     color: '#eee'
   }
 });
 export default ColorParser = ({ text }) => {
-    const wrds = reservedWords.allWords.map(w => '(?:^|[^A-Za-z0-9_])'+w+'(?![A-Za-z0-9_-])');
-    const words = text.split(
-      new RegExp(`([0-9]+|${wrds.join('|')}|".*?"|'.*?'|\`.*?\`)`, 'g')
-    );
-  
+    const numbers = '[0-9]+';
+    const reserved = reservedWords.allWords.map(w => `\\b${w}\\b`).join('|');
+    const comments = '\\/\\*(.|\\n)*\\*\\/|\\/\\/.*(?=\\n)';
+    const quotes = `".*?"|'.*?'|\`.*?\``;
+    const brackets = '\\.|\\,|\\(|\\)|\\{|\\}|\\[|\\]';
+    const comparators = '\\=|\\<|\\>';
+    const regex = new RegExp(`(${brackets}|${comparators}|${numbers}|${reserved}|${quotes}|${comments})`, 'g');
+    const words = text.split(regex);
     const styleWrappedTexts = words.map((word, i) => {
       if (!word) {
         return null;
       }
   
-      if (reservedWords.basicWords.indexOf(word) >= 0) {
+      if (reservedWords.basicWords.indexOf(word.trim()) >= 0) {
         partStyle = styles.basicKeywordStyle;
-      } else if (reservedWords.funcWords.indexOf(word) >= 0) {
+      } else if (reservedWords.funcWords.indexOf(word.trim()) >= 0) {
         partStyle = styles.funcKeywordStyle;
-      } else if (reservedWords.advancedWords.indexOf(word) >= 0) {
+      } else if (reservedWords.advancedWords.indexOf(word.trim()) >= 0) {
         partStyle = styles.advancedKeywordStyle;
       } else if (!isNaN(parseInt(word))) {
         partStyle = styles.numberStyle;
@@ -47,6 +53,12 @@ export default ColorParser = ({ text }) => {
         (word.startsWith('`') && word.endsWith('`'))
       ) {
         partStyle = styles.stringStyle;
+      } else if (new RegExp(brackets).test(word)) {
+        partStyle = styles.basicKeywordStyle;
+      } else if (new RegExp(comparators).test(word)) {
+        partStyle = styles.advancedKeywordStyle;
+      } else if (word.startsWith('//') || word.startsWith('/*')) {
+        partStyle = styles.commentStyle;
       } else {
         partStyle = styles.defaultStyle;
       }

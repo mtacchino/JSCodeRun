@@ -28,7 +28,9 @@ export const basicWords = [
     'try',
     'do',
     'if',
-    'in'
+    'in',
+    'on',
+    'of'
 ];
 
 export const funcWords = [
