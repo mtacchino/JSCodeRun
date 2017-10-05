@@ -28,14 +28,14 @@ const styles = StyleSheet.create({
 export default ColorParser = ({ text }) => {
     const numbers = '[0-9]+';
     const reserved = reservedWords.allWords.map(w => `\\b${w}\\b`).join('|');
-    const comments = '\\/\\*(.|\\n)*\\*\\/|\\/\\/.*(?=\\n)';
+    const comments = '//.*\n';
     const quotes = `".*?"|'.*?'|\`.*?\``;
     const brackets = '\\.|\\,|\\(|\\)|\\{|\\}|\\[|\\]';
     const comparators = '\\=|\\<|\\>';
-    const regex = new RegExp(`(${brackets}|${comparators}|${numbers}|${reserved}|${quotes}|${comments})`, 'g');
+    const regex = new RegExp(`(${comments}|${brackets}|${comparators}|${numbers}|${reserved}|${quotes})`, 'g');
     const words = text.split(regex);
     const styleWrappedTexts = words.map((word, i) => {
-      if (!word) {
+      if (word === undefined) {
         return null;
       }
   
@@ -57,7 +57,7 @@ export default ColorParser = ({ text }) => {
         partStyle = styles.basicKeywordStyle;
       } else if (new RegExp(comparators).test(word)) {
         partStyle = styles.advancedKeywordStyle;
-      } else if (word.startsWith('//') || word.startsWith('/*')) {
+      } else if (new RegExp(comments).test(word)) {
         partStyle = styles.commentStyle;
       } else {
         partStyle = styles.defaultStyle;

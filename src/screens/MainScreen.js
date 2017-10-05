@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View , Keyboard } from 'react-native';
 import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
 import HeaderBar from '../components/HeaderBar';
@@ -27,7 +27,14 @@ export default class MainScreen extends Component {
     });
   };
 
+  onClearOutput = () => {
+    this.setState({
+      output: []
+    });
+  }
+
   runCode = () => {
+    Keyboard.dismiss();
     const output = [];
     console.log = message => {
       output.push({
@@ -71,8 +78,8 @@ export default class MainScreen extends Component {
             handleCodeChange={this.handleCodeChange}
           />
         </View>
-        <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: '#ddd'}}>
-          <Output output={this.state.output} status={this.state.status} />
+        <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: '#aaa'}}>
+          <Output output={this.state.output} status={this.state.status} onClearOutput={this.onClearOutput} />
         </View>
       </View>
     );

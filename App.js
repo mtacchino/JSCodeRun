@@ -6,7 +6,7 @@ const log = console.log;
 output = [];
 console.error = val => {
   var out = val;
-  //log(arguments);
+  //log(val);
 };
 
 export default App => <MainScreen code={fibonacci}/>
