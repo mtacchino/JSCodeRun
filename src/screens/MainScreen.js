@@ -1,22 +1,32 @@
 import React, { Component } from 'react';
-import { StyleSheet, View , Keyboard } from 'react-native';
+import { StyleSheet, View , Keyboard, StatusBar } from 'react-native';
 import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
 import HeaderBar from '../components/HeaderBar';
+import defaultCode from '../constants/code/hello-world';
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'white'
-    }
-  });
+  container: {
+    flex: 1,
+    backgroundColor: '#222'
+  },
+  editorWrapper: {
+    flex: 1,
+    alignSelf: 'stretch'
+  },
+  outputWrapper: {
+    flex: 1,
+    alignSelf: 'stretch',
+    backgroundColor: '#aaa'
+  }
+});
   
 
 export default class MainScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: props.code,
+      code: defaultCode,
       output: []
     };
   }
@@ -66,20 +76,22 @@ export default class MainScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar 
+          backgroundColor="#222"
+          animated={true}
+          barStyle="dark-content"
+        />
         <HeaderBar runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
-        <View
-          style={{
-            flex: 1,
-            alignSelf: 'stretch'
-          }}
-        >
+        <View style={styles.editorWrapper}>
           <CodeEditor
             code={this.state.code}
             handleCodeChange={this.handleCodeChange}
           />
         </View>
-        <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: '#aaa'}}>
-          <Output output={this.state.output} status={this.state.status} onClearOutput={this.onClearOutput} />
+        <View style={styles.outputWrapper}>
+          <Output
+            output={this.state.output}
+            onClearOutput={this.onClearOutput} />
         </View>
       </View>
     );

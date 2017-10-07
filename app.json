@@ -5,6 +5,9 @@
     "icon": "./assets/app-icon.png",
     "sdkVersion": "21.0.0",
     "version": "1.0.0",
+    "loading": {
+      "backgroundImage": "./assets/splash.png"
+    },
     "ios": {
       "bundleIdentifier": "me.tacchino.javascriptrunner"
     },

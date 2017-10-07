@@ -2,3 +2,4 @@ node_modules/
 .expo/
 .vscode/
 npm-debug.*
+*/.DS_Store
