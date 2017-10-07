@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ScrollView, View, StyleSheet, Image, TouchableHighlight } from 'react-native';
+import { Text, ScrollView, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -52,12 +52,12 @@ const Output = ({ output, status, onClearOutput }) =>
       </ScrollView>
     </View>
     <View style={styles.trashContainer}>
-      <TouchableHighlight onPress={() => onClearOutput()}>
+      <TouchableOpacity onPress={() => onClearOutput()}>
         <Image 
           style={styles.trashImage}
           source={require('../../assets/delete.png')}
         />
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   </View>
 
