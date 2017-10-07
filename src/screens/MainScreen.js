@@ -94,22 +94,26 @@ export default class MainScreen extends Component {
             animated
             translucent
         />
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.screenContainer}>
-            <HeaderBar runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
-            <KeyboardAvoidingView behavior="height" style={styles.editorWrapper}>
-              <CodeEditor
-                code={this.state.code}
-                handleCodeChange={this.handleCodeChange}
-              />
-            </KeyboardAvoidingView>
-            <View style={styles.outputWrapper}>
-              <Output
-                output={this.state.output}
-                onClearOutput={this.onClearOutput} />
-            </View>
+        <View style={styles.screenContainer}>
+          <View style={styles.editorWrapper}>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <View>
+                <HeaderBar runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
+                <KeyboardAvoidingView behavior="height" >
+                  <CodeEditor
+                    code={this.state.code}
+                    handleCodeChange={this.handleCodeChange}
+                  />
+                </KeyboardAvoidingView>
+              </View>
+            </TouchableWithoutFeedback>
           </View>
-        </TouchableWithoutFeedback>
+          <View style={styles.outputWrapper}>
+            <Output
+              output={this.state.output}
+              onClearOutput={this.onClearOutput} />
+          </View>
+        </View>
       </View>
     );
   }

@@ -29,14 +29,10 @@ const styles = StyleSheet.create({
     headerBarItem: {
         padding: 5
     },
-    listItem: {
-        paddingHorizontal: 15,
-        paddingVertical: 7
-    },
     separator: {
         height: 1,
         width: "94%",
-        backgroundColor: "#CED0CE",
+        backgroundColor: "#666",
         marginLeft: "3%"
     },
     modalContainer: {
@@ -56,8 +52,12 @@ const styles = StyleSheet.create({
     },
     modalCloseText: {
         fontSize: 30,
-        color: 'black',
+        color: 'white',
         padding: 5
+    },
+    listItem: {
+        paddingHorizontal: 15,
+        paddingVertical: 12
     },
     listItemText: {
         color: 'white'

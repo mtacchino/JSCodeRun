@@ -1,18 +1,21 @@
 {
   "expo": {
-    "name": "JavaScript Runner",
-    "slug": "javascriptrunner",
+    "name": "JS Runner",
+    "description": "Write and run JavaScript snippets!",
+    "slug": "jsrunner",
     "icon": "./assets/app-icon.png",
     "sdkVersion": "21.0.0",
     "version": "1.0.0",
+    "orientation": "portrait",
     "loading": {
-      "backgroundImage": "./assets/splash.png"
+      "backgroundImage": "./assets/splash.png",
+      "hideExponentText": true
     },
     "ios": {
-      "bundleIdentifier": "me.tacchino.javascriptrunner"
+      "bundleIdentifier": "me.tacchino.jsrunner"
     },
     "android": {
-      "package": "me.tacchino.javascriptrunner"
+      "package": "me.tacchino.jsrunner"
     }
   }
 }
