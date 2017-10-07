@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "JS Runner",
-    "description": "Write and run JavaScript snippets!",
-    "slug": "jsrunner",
+    "name": "JS Code Run",
+    "description": "Write and run JavaScript code snippets!",
+    "slug": "jscoderun",
     "icon": "./assets/app-icon.png",
     "sdkVersion": "21.0.0",
     "version": "1.0.0",
@@ -12,10 +12,10 @@
       "hideExponentText": true
     },
     "ios": {
-      "bundleIdentifier": "me.tacchino.jsrunner"
+      "bundleIdentifier": "me.tacchino.jscoderun"
     },
     "android": {
-      "package": "me.tacchino.jsrunner"
+      "package": "me.tacchino.jscoderun"
     }
   }
 }
