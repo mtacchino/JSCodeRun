@@ -20,7 +20,9 @@ class CodeEditor extends Component {
         autoCapitalize="none"
         autoCorrect={false}
         multiline
+        keyboardType="ascii-capable"
         blurOnSubmit={false}
+        underlineColorAndroid="transparent"
         onChangeText={this.props.handleCodeChange}
       >
         <ColorParser text={this.props.code} />

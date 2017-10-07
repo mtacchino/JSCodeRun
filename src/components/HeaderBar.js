@@ -15,9 +15,9 @@ import codeExamples from '../constants/examples.js';
 
 const styles = StyleSheet.create({
     container: {
-        height: 80,
-        width: '100%',
-        backgroundColor: '#ddd'
+        marginTop: 22, // Status bar height
+        height: 55,
+        width: '100%'
     },
     headerBar: {
         flex: 1,
@@ -40,15 +40,35 @@ const styles = StyleSheet.create({
         marginLeft: "3%"
     },
     modalContainer: {
-        marginTop: 20
+        paddingTop: 22, //Status bar height
+        height:'100%',
+        backgroundColor: '#444'
     },
-    modalClose: {
-        borderBottomWidth: 1,
-        borderColor:'#d6d7da'
+    modalHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
-    listItemSmallText: {
+    modalTitle: {
+        fontSize: 24,
+        padding: 10,
+        color: 'white'
+    },
+    modalCloseText: {
+        fontSize: 30,
+        color: 'black',
+        padding: 5
+    },
+    listItemText: {
+        color: 'white'
+    },
+    listItemSubtext: {
         marginLeft: 10,
-        opacity: 0.7
+        opacity: 0.7,
+        color: 'white'
+    },
+    examplesButton: {
+        paddingBottom: 5
     },
     runButton: {
         height: 40,
@@ -59,11 +79,11 @@ const styles = StyleSheet.create({
 const ListItem = ({item, onPress}) =>
     <TouchableHighlight style={styles.listItem}
         activeOpacity={0.2}
-        underlayColor="#eee"
+        underlayColor="#444"
         onPress={() => onPress(item.code)}>
         <View>
-            <Text>{item.key}</Text>
-            <Text style={styles.listItemSmallText}>Runtime:{item.runtimeComplexity}, Space:{item.spaceComplexity}</Text>
+            <Text style={styles.listItemText}>{item.key}</Text>
+            <Text style={styles.listItemSubtext}>Runtime:{item.runtimeComplexity}, Space:{item.spaceComplexity}</Text>
         </View>
     </TouchableHighlight>
 
@@ -84,35 +104,44 @@ export default class HeaderBar extends Component {
   }
 
   render() {
-    return <View style={styles.container}>
+    return (
+      <View style={styles.container}>
         <Modal
             animationType="slide"
             transparent={false}
+            hardwareAccelerated
             visible={this.state.isExamplesModalDisplayed}
             onRequestClose={() => {this.toggleExamplesModal()}}
         >
             <View style={styles.modalContainer}>
-                
-                <Button style={styles.modalClose} onPress={() => this.toggleExamplesModal()} title="Close ✖" />
-                    <FlatList
-                        data={codeExamples}
-                        ItemSeparatorComponent={() => <Separator />}
-                        ListHeaderComponent={() => <Separator />}
-                        ListFooterComponent={() => <Separator />}
-                        keyExtractor={item => item.key}
-                        renderItem={({item}) => <ListItem item={item} onPress={code => {this.props.generateCode(code); this.toggleExamplesModal()}}/>}
-                    />
+                <View style={styles.modalHeader}>
+                    <Text style={styles.modalTitle}>Code examples</Text>
+                    <TouchableOpacity onPress={() => this.toggleExamplesModal()}>
+                        <Text style={styles.modalCloseText}>✕</Text>
+                    </TouchableOpacity>
+                </View>
+                <FlatList
+                    data={codeExamples}
+                    ItemSeparatorComponent={() => <Separator />}
+                    ListHeaderComponent={() => <Separator />}
+                    ListFooterComponent={() => <Separator />}
+                    keyExtractor={item => item.key}
+                    renderItem={({item}) => <ListItem item={item} onPress={code => {this.props.generateCode(code); this.toggleExamplesModal()}}/>}
+                />
             </View>
         </Modal>
         <View style={styles.headerBar}>
-            <TouchableOpacity style={styles.headerBarItem} onPress={() => {this.toggleExamplesModal()}}>
-                <Text>Code examples</Text>
+            <View style={styles.examplesButton}>
+            <TouchableOpacity onPress={() => this.toggleExamplesModal()}>
+                <Text style={{fontSize: 20, padding: 8, color: '#fff'}}>Code Examples</Text>
             </TouchableOpacity>
+            </View>
             <TouchableOpacity style={styles.headerBarItem} onPress={() => {this.props.runCode()}}>
                 <Image style={styles.runButton} source={require('../../assets/run.png')} />
             </TouchableOpacity>
 
         </View>
-    </View>
+      </View>
+    );
   }
 }

@@ -5,7 +5,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderTopWidth: 5,
+    borderColor:'#777'
   },
   output: {
     flex: 15
@@ -14,6 +16,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   trashImage: {
+    tintColor: '#777',
     width: 20,
     height: 20,
     alignSelf:'flex-end'

@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View , Keyboard, StatusBar } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Keyboard,
+  TouchableWithoutFeedback,
+  KeyboardAvoidingView,
+  StatusBar
+} from 'react-native';
 import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
 import HeaderBar from '../components/HeaderBar';
@@ -7,17 +14,20 @@ import defaultCode from '../constants/code/hello-world';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#222'
+    flex:1,
+    backgroundColor: '#777'
+  },
+  screenContainer: {
+    flex: 1
   },
   editorWrapper: {
-    flex: 1,
+    flex: 2,
     alignSelf: 'stretch'
   },
   outputWrapper: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: '#aaa'
+    backgroundColor: '#fff'
   }
 });
   
@@ -46,6 +56,8 @@ export default class MainScreen extends Component {
   runCode = () => {
     Keyboard.dismiss();
     const output = [];
+    const consoleTemp = Object.assign({}, console);
+
     console.log = message => {
       output.push({
         message,
@@ -68,6 +80,7 @@ export default class MainScreen extends Component {
       });
     }
 
+    console = consoleTemp;
     this.setState({
       output
     });
@@ -76,23 +89,27 @@ export default class MainScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar 
-          backgroundColor="#222"
-          animated={true}
-          barStyle="dark-content"
+        <StatusBar
+            barStyle="light-content"
+            animated
+            translucent
         />
-        <HeaderBar runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
-        <View style={styles.editorWrapper}>
-          <CodeEditor
-            code={this.state.code}
-            handleCodeChange={this.handleCodeChange}
-          />
-        </View>
-        <View style={styles.outputWrapper}>
-          <Output
-            output={this.state.output}
-            onClearOutput={this.onClearOutput} />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.screenContainer}>
+            <HeaderBar runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
+            <KeyboardAvoidingView behavior="height" style={styles.editorWrapper}>
+              <CodeEditor
+                code={this.state.code}
+                handleCodeChange={this.handleCodeChange}
+              />
+            </KeyboardAvoidingView>
+            <View style={styles.outputWrapper}>
+              <Output
+                output={this.state.output}
+                onClearOutput={this.onClearOutput} />
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     );
   }

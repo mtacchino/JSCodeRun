@@ -16,5 +16,5 @@ export default
 (function tests() {
   console.log(\`1st Fibonacci number: \${fibonacci(1)}\`);
   console.log(\`4th Fibonacci number: \${fibonacci(4)}\`);
-  console.log(\`100th Fibonacci number: \${fibonacci(100)}\`);
+  console.log(\`99th Fibonacci number: \${fibonacci(99)}\`);
 })();`
