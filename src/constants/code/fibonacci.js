@@ -1,16 +1,17 @@
 export default
-`const fibonacci = (n) => {
+`function fibonacci(n) {
   let memoizeMap = {
     0: 0,
     1: 1
   };
 
-  return (recurseFib = (n) => {
+  function recurseFib(n) {
     if (memoizeMap[n] === undefined) {
       memoizeMap[n] = recurseFib(n-2) + recurseFib(n-1);
     }
       return memoizeMap[n];
-  })(n);
+  };
+  return recurseFib(n);
 }
 
 (function tests() {
