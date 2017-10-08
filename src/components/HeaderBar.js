@@ -133,7 +133,7 @@ export default class HeaderBar extends Component {
         <View style={styles.headerBar}>
             <View style={styles.examplesButton}>
             <TouchableOpacity onPress={() => this.toggleExamplesModal()}>
-                <Text style={{fontSize: 20, padding: 8, color: '#fff'}}>Code Examples</Text>
+                <Text style={{fontSize: 20, padding: 8, color: '#fff'}}>Code examples</Text>
             </TouchableOpacity>
             </View>
             <TouchableOpacity style={styles.headerBarItem} onPress={() => {this.props.runCode()}}>
