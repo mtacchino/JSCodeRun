@@ -12,6 +12,7 @@ import Output from '../components/Output';
 import HeaderBar from '../components/HeaderBar';
 import defaultCode from '../constants/code/hello-world';
 import { transform } from '../../assets/babel-6.26.0';
+import '../../assets/babel-polyfill';
 
 const styles = StyleSheet.create({
   container: {
