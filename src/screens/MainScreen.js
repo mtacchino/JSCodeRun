@@ -76,7 +76,6 @@ export default class MainScreen extends Component {
       const transpiledCode = transform(this.state.code, {
         presets: ['latest']
       }).code;
-      console.log(transpiledCode)
       new Function(transpiledCode)();
     } catch (err) {
       output.push({
