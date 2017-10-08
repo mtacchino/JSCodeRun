@@ -94,9 +94,9 @@ export default class MainScreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-            barStyle="light-content"
-            animated
-            translucent
+          barStyle="light-content"
+          animated
+          translucent
         />
         <View style={styles.screenContainer}>
           <View style={styles.editorWrapper}>
