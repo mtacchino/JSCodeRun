@@ -8,6 +8,7 @@
     "version": "1.0.1",
     "orientation": "portrait",
     "loading": {
+      "icon": "./assets/app-icon.png",
       "backgroundColor": "#222",
       "backgroundImage": "./assets/splash.png",
       "hideExponentText": true
