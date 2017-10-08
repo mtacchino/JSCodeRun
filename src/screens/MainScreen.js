@@ -11,6 +11,7 @@ import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
 import HeaderBar from '../components/HeaderBar';
 import defaultCode from '../constants/code/hello-world';
+import { transform } from '../../assets/babel-6.26.0';
 
 const styles = StyleSheet.create({
   container: {
@@ -72,7 +73,11 @@ export default class MainScreen extends Component {
       });
     };
     try {
-      new Function(this.state.code)();
+      const transpiledCode = transform(this.state.code, {
+        presets: ['latest']
+      }).code;
+      console.log(transpiledCode)
+      new Function(transpiledCode)();
     } catch (err) {
       output.push({
         message: err.toString(),

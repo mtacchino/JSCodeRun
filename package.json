@@ -22,6 +22,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "babel-standalone": "^6.26.0",
     "debounce": "^1.0.2",
     "expo": "^21.0.0",
     "react": "16.0.0-alpha.12",
