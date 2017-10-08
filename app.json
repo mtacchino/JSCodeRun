@@ -8,6 +8,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "loading": {
+      "backgroundColor": "#777",
       "backgroundImage": "./assets/splash.png",
       "hideExponentText": true
     },
