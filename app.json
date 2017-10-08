@@ -5,7 +5,7 @@
     "slug": "jscoderun",
     "icon": "./assets/app-icon.png",
     "sdkVersion": "21.0.0",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "loading": {
       "backgroundColor": "#777",
@@ -13,10 +13,13 @@
       "hideExponentText": true
     },
     "ios": {
-      "bundleIdentifier": "me.tacchino.jscoderun"
+      "bundleIdentifier": "me.tacchino.jscoderun",
+      "buildNumber": "2"
     },
     "android": {
-      "package": "me.tacchino.jscoderun"
+      "package": "me.tacchino.jscoderun",
+      "versionCode": 2,
+      "permissions": []
     }
   }
 }

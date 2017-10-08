@@ -1,6 +1,6 @@
 {
   "name": "CodeEditor",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "devDependencies": {
     "jest-expo": "~20.0.0",
@@ -12,6 +12,7 @@
     "start": "react-native-scripts start",
     "build:ios": "exp build:ios",
     "build:android": "exp build:android",
+    "build:status": "exp build:status",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
