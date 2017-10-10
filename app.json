@@ -15,11 +15,11 @@
     },
     "ios": {
       "bundleIdentifier": "me.tacchino.jscoderun",
-      "buildNumber": "5"
+      "buildNumber": "6"
     },
     "android": {
       "package": "me.tacchino.jscoderun",
-      "versionCode": 5,
+      "versionCode": 6,
       "permissions": []
     }
   }
