@@ -35,11 +35,11 @@ const errorStyle = StyleSheet.create({
   }
 });
 
-const Output = ({ output, status, onClearOutput }) =>
+const Output = ({ output, onClearOutput }) =>
   <View style={styles.container}>
     <View style={styles.output}>
       <ScrollView >
-        {output.length ? output.map((line, i) => {
+        {output && output.length ? output.map((line, i) => {
           const styles = line.status === 'ERROR' ? errorStyle : successStyle;
           return (
             <View key={i} style={styles.lineWrapper}>

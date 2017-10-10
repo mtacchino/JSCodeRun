@@ -1,9 +1,13 @@
+import helloWorld from './code/hello-world';
 import fibonacci from './code/fibonacci';
 import binaryTreeDfs from './code/binary-tree-dfs';
 import binaryTreeBfs from './code/binary-tree-bfs';
 
 export default exampleData = [
     {
+        key: 'Hello World!',
+        code: helloWorld
+    }, {
         key: 'Fibonnaci - Nth number in sequence',
         runtimeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',

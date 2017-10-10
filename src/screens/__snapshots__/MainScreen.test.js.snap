@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainScreen should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#777",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "flex": 2,
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={undefined}
+        testID={undefined}
+      >
+        <HeaderBar
+          generateCode={[Function]}
+          runCode={[Function]}
+        />
+        <View
+          keyboardVerticalOffset={0}
+          onLayout={[Function]}
+          style={
+            Array [
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          <CodeEditor
+            code="// Delete me and write some code!
+          function sayHello() {
+            console.log(\\"Hello World!\\");
+          }
+          
+          sayHello();"
+            handleCodeChange={[Function]}
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "backgroundColor": "#fff",
+          "flex": 1,
+        }
+      }
+    >
+      <Output
+        onClearOutput={[Function]}
+        output={Array []}
+      />
+    </View>
+  </View>
+</View>
+`;
