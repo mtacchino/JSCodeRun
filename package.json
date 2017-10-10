@@ -1,6 +1,6 @@
 {
   "name": "JSCodeRun",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "devDependencies": {
     "jest-expo": "~20.0.0",
