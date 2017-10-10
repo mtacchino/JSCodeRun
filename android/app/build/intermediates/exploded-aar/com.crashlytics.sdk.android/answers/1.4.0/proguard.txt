@@ -1,0 +1,4 @@
+# Answers Proguard Config
+-dontwarn com.google.firebase.analytics.FirebaseAnalytics
+-dontwarn com.google.firebase.analytics.FirebaseAnalytics$Event
+-dontwarn com.google.firebase.analytics.FirebaseAnalytics$Param

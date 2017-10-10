@@ -3,30 +3,23 @@
   "version": "1.0.2",
   "private": true,
   "devDependencies": {
-    "jest-expo": "~20.0.0",
-    "react-native-scripts": "1.3.1",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "jest": "^21.2.1",
     "react-test-renderer": "16.0.0-alpha.12"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "build:ios": "exp build:ios",
-    "build:android": "exp build:android",
-    "build:status": "exp build:status",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
+    "start": "react-native start",
+    "build:ios": "xcodebuild -configuration Release -project ios/JSCodeRun.xcodeproj -scheme JSCodeRun -sdk iphonesimulator -derivedDataPath ios/build | xcpretty",
+    "build:android": "cd android && ./gradlew assembleRelease",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "test": "node node_modules/jest/bin/jest.js --watch"
-  },
-  "jest": {
-    "preset": "jest-expo"
   },
   "dependencies": {
     "babel-standalone": "^6.26.0",
-    "debounce": "^1.0.2",
-    "expo": "^21.0.0",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.48.4",
-    "react-native-storage": "^0.2.2"
+    "react-native-storage": "^0.2.2",
+    "react-navigation": "^1.0.0-beta.13"
   }
 }

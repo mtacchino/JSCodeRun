@@ -6,7 +6,9 @@ import binaryTreeBfs from './code/binary-tree-bfs';
 export default exampleData = [
     {
         key: 'Hello World!',
-        code: helloWorld
+        code: helloWorld,
+        runtimeComplexity: 'O(1)',
+        spaceComplexity: 'O(1)'
     }, {
         key: 'Fibonnaci - Nth number in sequence',
         runtimeComplexity: 'O(n)',

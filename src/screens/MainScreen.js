@@ -103,7 +103,11 @@ export default class MainScreen extends Component {
           <View style={styles.editorWrapper}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View>
-                <HeaderBar runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
+                <HeaderBar
+                  navigation={this.props.navigation}
+                  runCode={this.runCode} 
+                  generateCode={(code) => this.setState({code})}
+                />
                 <KeyboardAvoidingView behavior="height" >
                   <CodeEditor
                     code={this.state.code}

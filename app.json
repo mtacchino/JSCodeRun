@@ -22,5 +22,7 @@
       "versionCode": 6,
       "permissions": []
     }
-  }
+  },
+  "name": "JSCodeRun",
+  "displayName": "JS Code Run"
 }
