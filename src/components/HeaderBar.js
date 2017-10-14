@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginHorizontal: 5
+        marginHorizontal: 10
     },
     headerText: {
         fontSize: 22,

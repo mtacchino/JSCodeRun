@@ -9,7 +9,8 @@ import {
 
 const styles = StyleSheet.create({
     modalHeader: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginHorizontal: 10
     },
     modalTitle: {
         fontSize: 24,

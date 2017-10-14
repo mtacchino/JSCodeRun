@@ -40,10 +40,12 @@ const styles = StyleSheet.create({
 });
 
 const ListItem = ({item, onPress}) =>
-    <TouchableHighlight style={styles.listItem}
+    <TouchableHighlight 
+        style={styles.listItem}
         activeOpacity={0.2}
         underlayColor="#444"
-        onPress={() => onPress(item.code)}>
+        onPress={() => onPress(item.code)}
+    >
         <View>
             <Text style={styles.listItemText}>{item.key}</Text>
             <Text style={styles.listItemSubtext}>Runtime:{item.runtimeComplexity}, Space:{item.spaceComplexity}</Text>
