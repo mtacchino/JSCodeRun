@@ -6,7 +6,7 @@ import fonts from '../themes/fonts';
 
 const styles = StyleSheet.create({
   container: {
-    height:'100%'
+    height: '100%'
   },
   logoWrapper: {
     justifyContent: 'center',

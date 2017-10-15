@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
     },
     viewContainer: {
         flex: 1,
-        paddingHorizontal: 30,
-        paddingVertical: 50
+        padding: 30
     },
     viewContentContainer: {
         alignItems: 'center'
@@ -44,7 +43,8 @@ const styles = StyleSheet.create({
     },
     logoImage: {
         width: 250,
-        height: 250
+        height: 250,
+        marginBottom: 40
     }
 });
 
