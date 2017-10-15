@@ -4,7 +4,8 @@ import {
   View,
   Keyboard,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  StatusBar
 } from 'react-native';
 import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
@@ -46,6 +47,11 @@ export default class MainScreen extends Component {
       code
     });
   };
+
+  generateCode = code => {
+    this.handleCodeChange(code);
+    this.onClearOutput();
+  }
 
   onClearOutput = () => {
     this.setState({
@@ -101,6 +107,9 @@ export default class MainScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          barStyle="light-content"
+        />
         <View style={styles.screenContainer}>
           <View style={styles.editorWrapper}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -108,7 +117,7 @@ export default class MainScreen extends Component {
                 <HeaderBar
                   navigation={this.props.navigation}
                   runCode={this.runCode} 
-                  generateCode={(code) => this.setState({code})}
+                  generateCode={this.generateCode}
                 />
                 <KeyboardAvoidingView behavior="height" >
                   <CodeEditor
