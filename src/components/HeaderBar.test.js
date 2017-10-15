@@ -19,6 +19,7 @@ describe('HeaderBar', () => {
   it('should render the Header Bar correctly', () => {
     const rendered = renderer.create(
       <HeaderBar 
+        navigation={{state: { routeName: 'Someroute' }}}
         runCode={() => {}}
         generateCode={() => {}}
       />

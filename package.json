@@ -22,5 +22,11 @@
     "babel-preset-react-native-stage-0": "^1.0.1",
     "jest": "^21.2.1",
     "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)"
+    ]
   }
 }

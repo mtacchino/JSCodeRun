@@ -12,15 +12,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/internal_impl-23.0.1_a6a5126c2b39cb3776bdf7ebbf0a86f1712518b8.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -324,24 +315,6 @@
         revision="23.0.1"
         sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
         <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_40497af12cab5de71402134b46e7358055842d8a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/matt/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/support-annotations-23.0.1_c8833c01aa384f714487c8f02978301e8696911b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.android.support-support-v4-23.0.1_8a9aa21e8a0d9ca3c3549588e6db17fa19bbbf56.jar" />
     </item>
     <item
         is-multidex="false"

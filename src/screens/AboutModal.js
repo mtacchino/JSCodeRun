@@ -77,7 +77,7 @@ export default AboutModal = props =>
                     </Text>
                 </View>
                 <View style={styles.paragraph}>
-                    <Text style={styles.legalText}>Version {appVersion}</Text>
+                    {appVersion && <Text style={styles.legalText}>Version {appVersion}</Text>}
                 </View>
                 <View style={styles.paragraph}>
                     <Text style={styles.legalText}>Copyright © Matt Tacchino {currentYear}</Text>

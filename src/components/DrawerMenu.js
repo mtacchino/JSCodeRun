@@ -47,6 +47,6 @@ export default DrawerMenu = props =>
       <DrawerItems labelStyle={styles.itemLabels} {...props} />
     </View>
     <View style={styles.footer}>
-      <Text style={styles.footerText}>Version {appVersion}</Text>
+      {appVersion && <Text style={styles.footerText}>Version {appVersion}</Text>}
     </View>
   </View>
