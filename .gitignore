@@ -4,7 +4,7 @@
 
 # Xcode
 #
-build/
+*/build/*
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -68,5 +68,3 @@ coverage/
 ## App signing
 *.jks
 *.p12
-
-store_assets
