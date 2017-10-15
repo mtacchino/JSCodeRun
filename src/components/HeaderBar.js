@@ -9,7 +9,8 @@ import {
     Modal, 
     FlatList,
     Button,
-    Image
+    Image,
+    Platform
 } from 'react-native';
 import { ScreenNames } from '../App';
 import ExamplesModal from '../screens/ExamplesModal';
@@ -18,7 +19,7 @@ import codeExamples from '../constants/examples.js';
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 22, // Status bar height
+        marginTop: 22,
         height: 55,
         width: '100%'
     },

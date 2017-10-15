@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
         marginLeft: "3%"
     },
     modalContainer: {
-        paddingTop: 22, //Status bar height
         height:'100%',
         backgroundColor: '#444'
     },
@@ -62,7 +61,7 @@ export default ExamplesModal = props =>
         onRequestClose={props.onClose}
     >
         <View style={styles.modalContainer}>
-            <ModalHeader onClose={props.onClose} title="Examples" />
+            <ModalHeader onClose={props.onClose} title="EXAMPLES" />
             <FlatList
                 data={codeExamples}
                 ItemSeparatorComponent={() => <Separator />}

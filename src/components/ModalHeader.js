@@ -4,17 +4,35 @@ import {
     StyleSheet, 
     Text,
     View,
-    TouchableOpacity
+    TouchableOpacity,
+    Platform
 } from 'react-native';
+import fonts from '../themes/fonts';
 
 const styles = StyleSheet.create({
     modalHeader: {
         flexDirection: 'row',
-        marginHorizontal: 10
+        paddingHorizontal: 10,
+        paddingTop: Platform.OS === 'ios' ? 22 : 2,
+        paddingBottom: 10,
+        backgroundColor: '#2b2b2b'
+    },
+    modalItem: {
+        flex: 1,
+        justifyContent: 'center'
     },
     modalTitle: {
+        flex: 2,
+        alignItems: 'center',
+    },
+    modalTitleText: {
         fontSize: 24,
+        fontFamily: fonts.fontFamily,
         color: 'white',
+    },
+    modalClose: {
+        flex: 1,
+        alignItems: 'flex-end'
     },
     modalCloseText: {
         fontSize: 30,
@@ -24,11 +42,11 @@ const styles = StyleSheet.create({
 
 export default ModalHeader = props =>
     <View style={styles.modalHeader}>
-        <View style={{flex:1}}></View>
-        <View style={{flex:1, alignItems:'center', justifyContent: 'center'}}>
-            <Text style={styles.modalTitle}>{props.title}</Text>
+        <View style={styles.modalItem}></View>
+        <View style={[styles.modalItem, styles.modalTitle]}>
+            <Text style={styles.modalTitleText}>{props.title}</Text>
         </View>
-        <TouchableOpacity style={{flex:1,alignItems:'flex-end', justifyContent: 'center'}} onPress={props.onClose}>
+        <TouchableOpacity style={[styles.modalItem, styles.modalClose]} onPress={props.onClose}>
             <Text style={styles.modalCloseText}>✕</Text>
         </TouchableOpacity>
     </View>

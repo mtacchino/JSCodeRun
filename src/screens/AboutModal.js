@@ -13,7 +13,6 @@ import ModalHeader from '../components/ModalHeader';
 
 const styles = StyleSheet.create({
     modalContainer: {
-        paddingTop: 22, //Status bar height
         height: '100%',
         backgroundColor: '#444'
     }
@@ -27,7 +26,7 @@ export default AboutModal = props =>
         onRequestClose={props.onClose}
     >
         <View style={styles.modalContainer}>
-            <ModalHeader onClose={props.onClose} title="About" />
+            <ModalHeader onClose={props.onClose} title="ABOUT" />
             <View style={{paddingHorizontal: 30, flex: 1, alignItems: 'center'}}>
                 <Image style={{width: 250, height: 250}} source={require('../../assets/splash.png')} />
                 <View>
