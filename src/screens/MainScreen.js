@@ -27,8 +27,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch'
   },
   outputWrapper: {
-    flex: 1,
-    alignSelf: 'stretch',
     backgroundColor: '#fff'
   }
 });
@@ -39,7 +37,8 @@ export default class MainScreen extends Component {
     super(props);
     this.state = {
       code: defaultCode,
-      output: []
+      output: [],
+      outputHeight: 200
     };
   }
 
@@ -48,6 +47,11 @@ export default class MainScreen extends Component {
       code
     });
   };
+
+  generateCode = code => {
+    this.handleCodeChange(code);
+    this.onClearOutput();
+  }
 
   onClearOutput = () => {
     this.setState({
@@ -89,21 +93,32 @@ export default class MainScreen extends Component {
     this.setState({
       output
     });
-  };
-
+  };  
+  
+  componentWillMount() {
+    let keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', event => {
+      this.setState({
+        outputHeight: event.endCoordinates.height
+      });
+      keyboardDidShowListener.remove();
+    });
+  }
+  
   render() {
     return (
       <View style={styles.container}>
         <StatusBar
           barStyle="light-content"
-          animated
-          translucent
         />
         <View style={styles.screenContainer}>
           <View style={styles.editorWrapper}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View>
-                <HeaderBar runCode={this.runCode} generateCode={(code) => this.setState({code})}/>
+                <HeaderBar
+                  navigation={this.props.navigation}
+                  runCode={this.runCode} 
+                  generateCode={this.generateCode}
+                />
                 <KeyboardAvoidingView behavior="height" >
                   <CodeEditor
                     code={this.state.code}
@@ -113,7 +128,14 @@ export default class MainScreen extends Component {
               </View>
             </TouchableWithoutFeedback>
           </View>
-          <View style={styles.outputWrapper}>
+          <View
+            style={[
+              styles.outputWrapper,
+              {
+                height:this.state.outputHeight
+              }
+            ]}
+          >
             <Output
               output={this.state.output}
               onClearOutput={this.onClearOutput} />

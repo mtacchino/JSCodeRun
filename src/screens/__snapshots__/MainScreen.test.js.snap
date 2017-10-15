@@ -43,6 +43,7 @@ exports[`MainScreen should render correctly 1`] = `
       >
         <HeaderBar
           generateCode={[Function]}
+          navigation={undefined}
           runCode={[Function]}
         />
         <View
@@ -57,11 +58,7 @@ exports[`MainScreen should render correctly 1`] = `
         >
           <CodeEditor
             code="// Delete me and write some code!
-          function sayHello() {
-            console.log(\\"Hello World!\\");
-          }
-          
-          sayHello();"
+console.log(\\"Hello World!\\");"
             handleCodeChange={[Function]}
           />
         </View>
@@ -69,11 +66,14 @@ exports[`MainScreen should render correctly 1`] = `
     </View>
     <View
       style={
-        Object {
-          "alignSelf": "stretch",
-          "backgroundColor": "#fff",
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "backgroundColor": "#fff",
+          },
+          Object {
+            "height": 200,
+          },
+        ]
       }
     >
       <Output
