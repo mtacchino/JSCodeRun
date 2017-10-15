@@ -9,8 +9,7 @@ const styles = StyleSheet.create({
   logoWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 50,
-    paddingBottom: 30,
+    paddingVertical: 30,
     backgroundColor: '#222'
   },
   logo: {

@@ -19,9 +19,9 @@ import codeExamples from '../constants/examples.js';
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 22,
         height: 55,
-        width: '100%'
+        width: '100%',
+        marginTop: Platform.OS === 'ios' ? 20 : 0,
     },
     headerBar: {
         flex: 1,

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     modalHeader: {
         flexDirection: 'row',
         paddingHorizontal: 10,
-        paddingTop: Platform.OS === 'ios' ? 22 : 2,
+        paddingTop: Platform.OS === 'ios' ? 22 : 10,
         paddingBottom: 10,
         backgroundColor: '#2b2b2b'
     },
