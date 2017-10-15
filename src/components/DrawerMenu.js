@@ -1,10 +1,12 @@
 import React from 'react';
 import { DrawerItems } from 'react-navigation';
-import { View, StyleSheet, Image, Platform } from 'react-native';
+import { View, StyleSheet, Image, Platform, Text } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 import fonts from '../themes/fonts';
 
 const styles = StyleSheet.create({
   container: {
+    height:'100%'
   },
   logoWrapper: {
     justifyContent: 'center',
@@ -23,8 +25,18 @@ const styles = StyleSheet.create({
     fontSize: 22,
     paddingLeft: 20,
     fontFamily: fonts.fontFamily
+  },
+  footer: {
+    position: 'absolute',
+    right: 10,
+    bottom: 10
+  },
+  footerText: {
+    color: '#9876aa'
   }
 });
+
+const appVersion = DeviceInfo.getVersion();
 
 export default DrawerMenu = props =>
   <View style={styles.container}>
@@ -33,5 +45,8 @@ export default DrawerMenu = props =>
     </View>
     <View style={styles.itemWrapper}>
       <DrawerItems labelStyle={styles.itemLabels} {...props} />
+    </View>
+    <View style={styles.footer}>
+      <Text style={styles.footerText}>Version {appVersion}</Text>
     </View>
   </View>

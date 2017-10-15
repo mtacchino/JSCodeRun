@@ -9,6 +9,7 @@ import {
     Image,
     Linking
 } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 import ModalHeader from '../components/ModalHeader';
 
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
 });
 
 const currentYear = new Date().getFullYear();
-const appVersion = '1.1.1'//DeviceInfo.getVersion();
+const appVersion = DeviceInfo.getVersion();
 
 export default AboutModal = props =>
     <Modal
