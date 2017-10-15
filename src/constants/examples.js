@@ -33,12 +33,12 @@ export default exampleData = [
         spaceComplexity: 'O(n)',
         code: fibonacci
     }, {
-        key: 'Binary Tree - Depth-first search (DFS)',
+        key: 'Binary Tree - Depth-first search',
         runtimeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
         code: binaryTreeDfs
     }, {
-        key: 'Binary Tree - Breadth-first search (BFS)',
+        key: 'Binary Tree - Breadth-first search',
         runtimeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
         code: binaryTreeBfs

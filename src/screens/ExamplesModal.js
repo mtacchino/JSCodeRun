@@ -15,34 +15,36 @@ import codeExamples from '../constants/examples.js';
 
 const styles = StyleSheet.create({
     separator: {
-        height: 1,
-        width: "94%",
-        backgroundColor: "#666",
-        marginLeft: "3%"
+        height: 6,
+    },
+    listWrap: {
+        height: 15,
     },
     modalContainer: {
         height:'100%',
         backgroundColor: '#444'
     },
     listItem: {
-        paddingHorizontal: 15,
-        paddingVertical: 12
+        paddingHorizontal: 25,
+        paddingVertical: 15,
+        backgroundColor: '#555555'
     },
     listItemText: {
-        color: 'white'
+        color: '#71d5c3',
+        fontSize: 20
     },
     listItemSubtext: {
         marginLeft: 10,
-        opacity: 0.7,
-        color: 'white'
+        color: 'white',
+        fontSize: 15
     }
 });
 
 const ListItem = ({item, onPress}) =>
     <TouchableHighlight 
         style={styles.listItem}
-        activeOpacity={0.2}
-        underlayColor="#444"
+        activeOpacity={1}
+        underlayColor="#777777"
         onPress={() => onPress(item.code)}
     >
         <View>
@@ -52,6 +54,7 @@ const ListItem = ({item, onPress}) =>
     </TouchableHighlight>
 
 const Separator = () => <View style={styles.separator}/>
+const ListWrap = () => <View style={styles.listWrap}/>
 
 export default ExamplesModal = props =>
     <Modal
@@ -65,8 +68,8 @@ export default ExamplesModal = props =>
             <FlatList
                 data={codeExamples}
                 ItemSeparatorComponent={() => <Separator />}
-                ListHeaderComponent={() => <Separator />}
-                ListFooterComponent={() => <Separator />}
+                ListHeaderComponent={() => <ListWrap />}
+                ListFooterComponent={() => <ListWrap />}
                 keyExtractor={item => item.key}
                 renderItem={({item}) => <ListItem item={item} onPress={code => {props.generateCode(code); props.onClose()}}/>}
             />
