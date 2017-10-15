@@ -4,6 +4,7 @@ import {
     StyleSheet, 
     Text, 
     View,
+    ScrollView,
     Modal,
     Image,
     Linking
@@ -15,8 +16,39 @@ const styles = StyleSheet.create({
     modalContainer: {
         height: '100%',
         backgroundColor: '#444'
+    },
+    viewContainer: {
+        flex: 1,
+        paddingHorizontal: 30,
+        paddingVertical: 50
+    },
+    viewContentContainer: {
+        alignItems: 'center'
+    },
+    paragraph: {
+        marginVertical: 10
+    },
+    paragraphText: {
+        color: 'white',
+        fontSize: 16,
+        textAlign: 'center'
+    },
+    legalText: {
+        color: '#9876aa',
+        fontSize: 14,
+        textAlign: 'center'
+    },
+    link: {
+        color: '#71d5c3'
+    },
+    logoImage: {
+        width: 250,
+        height: 250
     }
 });
+
+const currentYear = new Date().getFullYear();
+const appVersion = '1.1.1'//DeviceInfo.getVersion();
 
 export default AboutModal = props =>
     <Modal
@@ -27,17 +59,29 @@ export default AboutModal = props =>
     >
         <View style={styles.modalContainer}>
             <ModalHeader onClose={props.onClose} title="ABOUT" />
-            <View style={{paddingHorizontal: 30, flex: 1, alignItems: 'center'}}>
-                <Image style={{width: 250, height: 250}} source={require('../../assets/splash.png')} />
-                <View>
-                    <Text style={{fontSize:20, textAlign:'center', color: 'white'}}>JS Code Run is open source and welcome to contributions!</Text>
+            <ScrollView contentContainerStyle={styles.viewContentContainer} style={styles.viewContainer}>
+                <View style={styles.paragraph}>
+                    <Text style={styles.paragraphText}>JS Code Run helps you write and run JavaScript code snippets.</Text>
                 </View>
-                <View>
-                    <Text style={{color: 'lightblue', fontSize:30}}
-                        onPress={() => Linking.openURL('http://github.com/mtacchino/JSCodeRun')}>
-                        Github
+                <View style={styles.paragraph}>
+                    <Text style={styles.paragraphText}>Need ideas to get started? Check out the examples in the menu.</Text>
+                </View>
+                <View style={styles.paragraph}>
+                    <Text style={styles.paragraphText}>
+                        JS Code Run is open source under the MIT license. If you want to add a feature or contribute, fork us on&nbsp;
+                        <Text style={styles.link}
+                            onPress={() => Linking.openURL('http://github.com/mtacchino/JSCodeRun')}>
+                            Github
+                        </Text>.
                     </Text>
                 </View>
-            </View>
+                <View style={styles.paragraph}>
+                    <Text style={styles.legalText}>Version {appVersion}</Text>
+                </View>
+                <View style={styles.paragraph}>
+                    <Text style={styles.legalText}>Copyright © Matt Tacchino {currentYear}</Text>
+                </View>
+                <Image style={styles.logoImage} source={require('../../assets/splash.png')} />
+            </ScrollView>
         </View>
     </Modal>
