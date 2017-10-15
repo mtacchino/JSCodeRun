@@ -1,11 +1,16 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="me.tacchino.jscoderun"
-    android:versionCode="10"
-    android:versionName="1.0.3">
+    android:versionCode="11"
+    android:versionName="1.1.0">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
+    <uses-permission tools:node="remove" android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission tools:node="remove" android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission tools:node="remove" android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="22" />
@@ -32,5 +37,4 @@
       />
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

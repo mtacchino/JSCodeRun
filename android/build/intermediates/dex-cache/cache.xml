@@ -35,7 +35,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.2.0_dc196a42f3d6a739362da22343676b2b331bc6fd.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.android.support-support-fragment-25.2.0_dc196a42f3d6a739362da22343676b2b331bc6fd.jar" />
     </item>
     <item
         is-multidex="false"
@@ -71,7 +71,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.2.0_3503da4998b081db320a3fac6db9dccbd275d870.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.android.support-support-core-ui-25.2.0_3503da4998b081db320a3fac6db9dccbd275d870.jar" />
     </item>
     <item
         is-multidex="false"
@@ -98,7 +98,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.2.0_e207378a4085500f6e660232162e4e44d134d881.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.android.support-support-v4-25.2.0_e207378a4085500f6e660232162e4e44d134d881.jar" />
     </item>
     <item
         is-multidex="false"
@@ -116,7 +116,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.2.0_2c7f80fb274dec34b1ab19295466d9e3da452877.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.android.support-support-core-utils-25.2.0_2c7f80fb274dec34b1ab19295466d9e3da452877.jar" />
     </item>
     <item
         is-multidex="false"
@@ -179,7 +179,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="70ffe00aaf049893f59d1dad57bd82992faa38ef">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-11.0.4_d5811c0ee249175c8da10831727653fde6031098.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-base-11.0.4_d5811c0ee249175c8da10831727653fde6031098.jar" />
     </item>
     <item
         is-multidex="false"
@@ -197,7 +197,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="2430e711762a749feb00b3d64858ca4768251b9d">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-11.0.4_d90849eb1e062ffa5a954538602f339545b7489d.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-tasks-11.0.4_d90849eb1e062ffa5a954538602f339545b7489d.jar" />
     </item>
     <item
         is-multidex="false"
@@ -206,7 +206,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="364364bf77b4a71afc5930fc3ae57b3f0eea637c">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-11.0.4_748963bd0d7ee932a9d3ba173a42cc4c201daba3.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-basement-11.0.4_748963bd0d7ee932a9d3ba173a42cc4c201daba3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -215,7 +215,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_07923dd239a53de6262627b56c95efc61acb62af.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.android.support-support-media-compat-25.2.0_07923dd239a53de6262627b56c95efc61acb62af.jar" />
     </item>
     <item
         is-multidex="false"
@@ -233,7 +233,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/support-annotations-25.2.0_4d4859cc3b7a905b0859ad42ed095f0744e65ddb.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/support-annotations-25.2.0_4d4859cc3b7a905b0859ad42ed095f0744e65ddb.jar" />
     </item>
     <item
         is-multidex="false"
@@ -269,7 +269,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="d8942ee348aaa9341f08f7e2437063893fe27542">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-11.0.4_2254d55f71b0f4e51ffc4724bbb63b2551762042.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-gcm-11.0.4_2254d55f71b0f4e51ffc4724bbb63b2551762042.jar" />
     </item>
     <item
         is-multidex="false"
@@ -278,7 +278,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="2e4336ffc2b7653868134d7f6f8b28523ef54645">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/JSCodeRun-react-native-device-info-unspecified_213a1eb60a02e50b1ce97d35dfab2a71cc6bd25e.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/JSCodeRun-react-native-device-info-unspecified_213a1eb60a02e50b1ce97d35dfab2a71cc6bd25e.jar" />
     </item>
     <item
         is-multidex="false"
@@ -296,7 +296,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="dd282bdeaa904c59d77e57dedd7e0a241c9b679d">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-11.0.4_f704edc9b013c09b98a6025593dc9ef782650ad8.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-iid-11.0.4_f704edc9b013c09b98a6025593dc9ef782650ad8.jar" />
     </item>
     <item
         is-multidex="false"
@@ -314,7 +314,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
-        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_40497af12cab5de71402134b46e7358055842d8a.jar" />
+        <dex dex="/Users/matt/Dev/JSCodeRun/android/app/build/intermediates/pre-dexed/release/com.android.support-support-compat-25.2.0_40497af12cab5de71402134b46e7358055842d8a.jar" />
     </item>
     <item
         is-multidex="false"
