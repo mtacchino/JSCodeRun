@@ -1,7 +1,7 @@
 <manifest 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="me.tacchino.jscoderun"
+    package="me.tacchino.jscoderunner"
     android:versionCode="11"
     android:versionName="1.1.1">
 

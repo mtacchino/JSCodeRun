@@ -99,7 +99,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "me.tacchino.jscoderun"
+        applicationId "me.tacchino.jscoderunner"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 12
