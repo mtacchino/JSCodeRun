@@ -12,7 +12,7 @@ import {
     Image,
     Platform
 } from 'react-native';
-import { ScreenNames } from '../App';
+import { ScreenNames } from './Navigator';
 import ExamplesModal from '../screens/ExamplesModal';
 import AboutModal from '../screens/AboutModal';
 import codeExamples from '../constants/examples.js';
