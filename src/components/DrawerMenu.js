@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
   },
   itemLabels: {
     fontSize: 22,
-    paddingLeft: 20,
     fontFamily: fonts.fontFamily
   },
   footer: {
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
 
 const appVersion = DeviceInfo.getVersion();
 
-export default DrawerMenu = props =>
+export default (DrawerMenu = props => (
   <View style={styles.container}>
     <View style={styles.logoWrapper}>
       <Image style={styles.logo} source={require('../../assets/logo.png')} />
@@ -46,7 +45,6 @@ export default DrawerMenu = props =>
     <View style={styles.itemWrapper}>
       <DrawerItems labelStyle={styles.itemLabels} {...props} />
     </View>
-    <View style={styles.footer}>
-      {appVersion && <Text style={styles.footerText}>Version {appVersion}</Text>}
-    </View>
+    <View style={styles.footer}>{appVersion && <Text style={styles.footerText}>Version {appVersion}</Text>}</View>
   </View>
+));

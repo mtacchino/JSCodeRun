@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Keyboard,
-  TouchableWithoutFeedback,
-  KeyboardAvoidingView,
-  StatusBar
-} from 'react-native';
+import { StyleSheet, View, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, StatusBar } from 'react-native';
 import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
 import HeaderBar from '../components/HeaderBar';
@@ -14,9 +7,15 @@ import defaultCode from '../constants/code/hello-world';
 import { transform } from '../../assets/babel-6.26.0';
 import '../../assets/babel-polyfill';
 
+import ExamplesModal from '../screens/ExamplesModal';
+import AboutModal from '../screens/AboutModal';
+import FileSaveModal from '../screens/FileSaveModal';
+import FileOpenModal from '../screens/FileOpenModal';
+import { ScreenNames } from '../components/Navigator';
+
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: '#777'
   },
   screenContainer: {
@@ -30,7 +29,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   }
 });
-  
 
 export default class MainScreen extends Component {
   constructor(props) {
@@ -51,13 +49,13 @@ export default class MainScreen extends Component {
   generateCode = code => {
     this.handleCodeChange(code);
     this.onClearOutput();
-  }
+  };
 
   onClearOutput = () => {
     this.setState({
       output: []
     });
-  }
+  };
 
   runCode = () => {
     Keyboard.dismiss();
@@ -93,8 +91,8 @@ export default class MainScreen extends Component {
     this.setState({
       output
     });
-  };  
-  
+  };
+
   componentWillMount() {
     let keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', event => {
       this.setState({
@@ -103,27 +101,37 @@ export default class MainScreen extends Component {
       keyboardDidShowListener.remove();
     });
   }
-  
+
+  renderModal() {
+    switch (this.props.navigation.state.routeName) {
+      case ScreenNames.EXAMPLES_SCREEN:
+        return <ExamplesModal onClose={this.hideModal} generateCode={this.generateCode} />;
+      case ScreenNames.ABOUT_SCREEN:
+        return <AboutModal onClose={this.hideModal} />;
+      case ScreenNames.FILE_SAVE_AS_SCREEN:
+        return <FileSaveModal onClose={this.hideModal} fileContents={this.state.code} />;
+      case ScreenNames.FILE_OPEN_SCREEN:
+        return <FileOpenModal onClose={this.hideModal} generateCode={this.generateCode} />;
+      default:
+        return null;
+    }
+  }
+  hideModal = () => {
+    this.props.navigation.goBack();
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar
-          barStyle="light-content"
-        />
+        <StatusBar barStyle="light-content" />
         <View style={styles.screenContainer}>
           <View style={styles.editorWrapper}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View>
-                <HeaderBar
-                  navigation={this.props.navigation}
-                  runCode={this.runCode} 
-                  generateCode={this.generateCode}
-                />
-                <KeyboardAvoidingView behavior="height" >
-                  <CodeEditor
-                    code={this.state.code}
-                    handleCodeChange={this.handleCodeChange}
-                  />
+                <HeaderBar navigation={this.props.navigation} runCode={this.runCode} generateCode={this.generateCode} />
+                {this.renderModal()}
+                <KeyboardAvoidingView behavior="height">
+                  <CodeEditor code={this.state.code} handleCodeChange={this.handleCodeChange} />
                 </KeyboardAvoidingView>
               </View>
             </TouchableWithoutFeedback>
@@ -132,13 +140,11 @@ export default class MainScreen extends Component {
             style={[
               styles.outputWrapper,
               {
-                height:this.state.outputHeight
+                height: this.state.outputHeight
               }
             ]}
           >
-            <Output
-              output={this.state.output}
-              onClearOutput={this.onClearOutput} />
+            <Output output={this.state.output} onClearOutput={this.onClearOutput} />
           </View>
         </View>
       </View>
