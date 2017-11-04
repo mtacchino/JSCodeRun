@@ -10,6 +10,7 @@ import {
   Button,
   Image
 } from 'react-native';
+import ModalHeader from '../components/ModalHeader';
 import codeExamples from '../constants/examples.js';
 
 const styles = StyleSheet.create({

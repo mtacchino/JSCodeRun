@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#222',
     color: 'white',
     padding: 5,
-    textAlignVertical: 'top'
+    textAlignVertical: 'top',
+    fontSize: 14
   }
 });
 
