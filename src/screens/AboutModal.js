@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 const currentYear = new Date().getFullYear();
 const appVersion = DeviceInfo.getVersion();
 
-export default (AboutModal = props => (
+export default props => (
   <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={props.onClose}>
     <View style={styles.modalContainer}>
       <ModalHeader onClose={props.onClose} title="ABOUT" />
@@ -69,4 +69,4 @@ export default (AboutModal = props => (
       </ScrollView>
     </View>
   </Modal>
-));
+);

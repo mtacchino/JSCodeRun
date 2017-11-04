@@ -58,7 +58,7 @@ const ListItem = ({ item, onPress }) => (
 const Separator = () => <View style={styles.separator} />;
 const ListWrap = () => <View style={styles.listWrap} />;
 
-export default (ExamplesModal = props => (
+export default props => (
   <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={props.onClose}>
     <View style={styles.modalContainer}>
       <ModalHeader onClose={props.onClose} title="EXAMPLES" />
@@ -80,4 +80,4 @@ export default (ExamplesModal = props => (
       />
     </View>
   </Modal>
-));
+);
