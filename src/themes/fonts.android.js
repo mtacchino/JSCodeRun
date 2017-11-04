@@ -1,3 +1,3 @@
-export default fonts = {
+export default {
   fontFamily: 'sans-serif-thin'
-}
+};
