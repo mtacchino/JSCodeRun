@@ -12,6 +12,7 @@ exports[`CodeEditor should render correctly with code 1`] = `
     Object {
       "backgroundColor": "#222",
       "color": "white",
+      "fontSize": 15,
       "height": "100%",
       "padding": 5,
       "textAlignVertical": "top",
