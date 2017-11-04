@@ -25,7 +25,7 @@ const drawerNavigatorConfig = {
   drawerWidth: 270
 };
 
-export default (AppNavigator = DrawerNavigator(
+export default DrawerNavigator(
   {
     [ScreenNames.HOME_SCREEN]: {
       screen: MainScreen,
@@ -59,4 +59,4 @@ export default (AppNavigator = DrawerNavigator(
     }
   },
   drawerNavigatorConfig
-));
+);

@@ -30,24 +30,16 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class HeaderBar extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.headerBar}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-            <Image style={styles.hamburger} source={require('../../assets/hamburger.png')} />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>JS Code Run</Text>
-          <TouchableOpacity
-            onPress={() => {
-              this.props.runCode();
-            }}
-          >
-            <Image style={styles.runButton} source={require('../../assets/run.png')} />
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
-}
+export default ({ navigation, runCode }) => (
+  <View style={styles.container}>
+    <View style={styles.headerBar}>
+      <TouchableOpacity onPress={() => navigation.navigate('DrawerOpen')}>
+        <Image style={styles.hamburger} source={require('../../assets/hamburger.png')} />
+      </TouchableOpacity>
+      <Text style={styles.headerText}>JS Code Run</Text>
+      <TouchableOpacity onPress={() => runCode()}>
+        <Image style={styles.runButton} source={require('../../assets/run.png')} />
+      </TouchableOpacity>
+    </View>
+  </View>
+);

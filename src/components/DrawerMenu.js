@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 
 const appVersion = DeviceInfo.getVersion();
 
-export default (DrawerMenu = props => (
+export default props => (
   <View style={styles.container}>
     <View style={styles.logoWrapper}>
       <Image style={styles.logo} source={require('../../assets/logo.png')} />
@@ -47,4 +47,4 @@ export default (DrawerMenu = props => (
     </View>
     <View style={styles.footer}>{appVersion && <Text style={styles.footerText}>Version {appVersion}</Text>}</View>
   </View>
-));
+);
