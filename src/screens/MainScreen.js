@@ -31,14 +31,11 @@ const styles = StyleSheet.create({
 });
 
 export default class MainScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      code: defaultCode,
-      output: [],
-      outputHeight: 200
-    };
-  }
+  state = {
+    code: defaultCode,
+    output: [],
+    outputHeight: 200
+  };
 
   handleCodeChange = code => {
     this.setState({
@@ -60,7 +57,7 @@ export default class MainScreen extends Component {
   runCode = () => {
     Keyboard.dismiss();
     const output = [];
-    const consoleTemp = Object.assign({}, console);
+    const consoleTemp = { ...console };
 
     console.log = message => {
       output.push({
@@ -103,7 +100,7 @@ export default class MainScreen extends Component {
   }
 
   renderModal() {
-    switch (this.props.navigation.state.routeName) {
+    switch (this.props.navigation && this.props.navigation.state && this.props.navigation.state.routeName) {
       case ScreenNames.EXAMPLES_SCREEN:
         return <ExamplesModal onClose={this.hideModal} generateCode={this.generateCode} />;
       case ScreenNames.ABOUT_SCREEN:

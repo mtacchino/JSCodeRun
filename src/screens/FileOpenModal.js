@@ -12,6 +12,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import fs from 'react-native-fs';
+import ModalHeader from '../components/ModalHeader';
 
 const styles = StyleSheet.create({
   modalContainer: {
@@ -78,20 +79,14 @@ const ListWrap = () => <View style={styles.listWrap} />;
 const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
 
 export default class FileSaveModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      files: []
-    };
-  }
+  state = { loading: true, files: [] };
 
   componentDidMount() {
     this.readDir();
   }
 
-  readDir = () => {
-    return fs
+  readDir = () =>
+    fs
       .mkdir(documentsDir)
       .then(() => fs.readDir(documentsDir))
       .then(files => {
@@ -110,7 +105,6 @@ export default class FileSaveModal extends Component {
           loading: false
         });
       });
-  };
 
   openFile = fileName => {
     const path = `${documentsDir}/${fileName}`;

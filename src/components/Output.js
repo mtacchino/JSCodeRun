@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     borderTopWidth: 5,
-    borderColor:'#777'
+    borderColor: '#777'
   },
   output: {
     flex: 15
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     tintColor: '#777',
     width: 20,
     height: 20,
-    alignSelf:'flex-end'
+    alignSelf: 'flex-end'
   }
 });
 
@@ -35,30 +35,28 @@ const errorStyle = StyleSheet.create({
   }
 });
 
-const Output = ({ output, onClearOutput }) =>
+const Output = ({ output, onClearOutput }) => (
   <View style={styles.container}>
     <View style={styles.output}>
-      <ScrollView >
-        {output && output.length ? output.map((line, i) => {
-          const styles = line.status === 'ERROR' ? errorStyle : successStyle;
-          return (
-            <View key={i} style={styles.lineWrapper}>
-              <Text style={styles.text}>
-                {line.message}
-              </Text>
-            </View>
-          );
-        }) : null}
+      <ScrollView>
+        {output && output.length
+          ? output.map((line, i) => {
+              const styles = line.status === 'ERROR' ? errorStyle : successStyle;
+              return (
+                <View key={i} style={styles.lineWrapper}>
+                  <Text style={styles.text}>{line.message}</Text>
+                </View>
+              );
+            })
+          : null}
       </ScrollView>
     </View>
     <View style={styles.trashContainer}>
       <TouchableOpacity onPress={() => onClearOutput()}>
-        <Image 
-          style={styles.trashImage}
-          source={require('../../assets/delete.png')}
-        />
+        <Image style={styles.trashImage} source={require('../../assets/delete.png')} />
       </TouchableOpacity>
     </View>
   </View>
+);
 
 export default Output;

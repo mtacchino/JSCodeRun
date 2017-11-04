@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, TextInput, Text, View, Modal, Button, Platform, Alert } from 'react-native';
 import fs from 'react-native-fs';
+import ModalHeader from '../components/ModalHeader';
 
 const styles = StyleSheet.create({
   modalContainer: {
@@ -23,12 +24,7 @@ const styles = StyleSheet.create({
 const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
 
 export default class FileSaveModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fileName: ''
-    };
-  }
+  state = { fileName: '' };
 
   saveFile = fileContents => {
     const path = `${documentsDir}/${this.state.fileName}.js`;

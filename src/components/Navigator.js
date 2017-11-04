@@ -25,6 +25,10 @@ const drawerNavigatorConfig = {
   drawerWidth: 270
 };
 
+const DrawerIcon = ({ iconName }) => (
+  <Image source={require(`../../assets/${iconName}-icon.png`)} style={styles.icon} />
+);
+
 export default DrawerNavigator(
   {
     [ScreenNames.HOME_SCREEN]: {
@@ -36,25 +40,25 @@ export default DrawerNavigator(
     [ScreenNames.FILE_OPEN_SCREEN]: {
       screen: MainScreen,
       navigationOptions: () => ({
-        drawerIcon: () => <Image source={require('../../assets/open-icon.png')} style={styles.icon} />
+        drawerIcon: () => <DrawerIcon iconName="open" />
       })
     },
     [ScreenNames.FILE_SAVE_AS_SCREEN]: {
       screen: MainScreen,
       navigationOptions: () => ({
-        drawerIcon: () => <Image source={require('../../assets/save-icon.png')} style={styles.icon} />
+        drawerIcon: () => <DrawerIcon iconName="open" />
       })
     },
     [ScreenNames.EXAMPLES_SCREEN]: {
       screen: MainScreen,
       navigationOptions: () => ({
-        drawerIcon: () => <Image source={require('../../assets/examples-icon.png')} style={styles.icon} />
+        drawerIcon: () => <DrawerIcon iconName="open" />
       })
     },
     [ScreenNames.ABOUT_SCREEN]: {
       screen: MainScreen,
       navigationOptions: () => ({
-        drawerIcon: () => <Image source={require('../../assets/about-icon.png')} style={styles.icon} />
+        drawerIcon: () => <DrawerIcon iconName="open" />
       })
     }
   },

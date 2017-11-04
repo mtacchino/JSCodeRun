@@ -8,18 +8,13 @@ jest.mock('../components/HeaderBar', () => 'HeaderBar');
 
 describe('MainScreen', () => {
   it('should render correctly', () => {
-    const rendered = renderer.create(
-      <MainScreen />
-    ).toJSON();
+    const rendered = renderer.create(<MainScreen />).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 
   describe('runCode', () => {
     it('should produce an array of a single output when code is logged', () => {
-      const instance = renderer.create(
-        <MainScreen />
-      ).getInstance();
-      
+      const instance = renderer.create(<MainScreen />).getInstance();
       instance.setState({
         code: 'console.log("Test output")'
       });
@@ -34,10 +29,7 @@ describe('MainScreen', () => {
     });
 
     it('should produce an array of a multiple outputs when code is logged', () => {
-      const instance = renderer.create(
-        <MainScreen />
-      ).getInstance();
-      
+      const instance = renderer.create(<MainScreen />).getInstance();
       instance.setState({
         code: 'console.log("Test output"); console.log("More output");'
       });
@@ -45,7 +37,8 @@ describe('MainScreen', () => {
         {
           message: 'Test output',
           status: 'OK'
-        }, {
+        },
+        {
           message: 'More output',
           status: 'OK'
         }
@@ -53,12 +46,9 @@ describe('MainScreen', () => {
       instance.runCode();
       expect(instance.state.output).toEqual(expected);
     });
-    
+
     it('should produce an array of a multiple error outputs when code errors', () => {
-      const instance = renderer.create(
-        <MainScreen />
-      ).getInstance();
-      
+      const instance = renderer.create(<MainScreen />).getInstance();
       instance.setState({
         code: 'badcode'
       });
@@ -71,5 +61,5 @@ describe('MainScreen', () => {
       instance.runCode();
       expect(instance.state.output).toEqual(expected);
     });
-  })
-})
+  });
+});
