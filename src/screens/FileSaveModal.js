@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   TextInput,
@@ -13,6 +14,7 @@ import {
 } from 'react-native';
 import fs from 'react-native-fs';
 import ModalHeader from '../components/ModalHeader';
+import { fileSaveSubmit } from '../reducers/fileSystem';
 
 const styles = StyleSheet.create({
   modalContainer: {
@@ -61,31 +63,25 @@ const styles = StyleSheet.create({
 
 const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
 
-export default class FileSaveModal extends Component {
+class FileSaveModal extends Component {
   state = { fileName: '' };
 
-  saveFile = fileContents => {
-    const path = `${documentsDir}/${this.state.fileName}.js`;
-
-    fs
-      .writeFile(path, fileContents, 'utf8')
-      .then(success => {
-        Alert.alert(`${this.state.fileName}.js successfully saved`, null, [
-          {
-            text: 'OK',
-            onPress: () => this.props.onClose()
-          }
-        ]);
-      })
-      .catch(err => {
-        Alert.alert(`There was a problem saving file: ${this.state.fileName}`, `${err.code}: ${err.message}`);
-      });
+  saveFile = () => {
+    this.props.saveFile(`${this.state.fileName}.js`, this.props.fileContents, () => {
+      Alert.alert(`${this.state.fileName}.js saved successfully`, null, [
+        {
+          text: 'OK',
+          onPress: () => this.props.onClose()
+        }
+      ]);
+    });
   };
 
   isSaveEnabled = () => this.state.fileName.length > 0;
 
   render() {
-    const { fileContents, onClose, saveFileSubmit } = this.props;
+    const { fileContents, onClose, err } = this.props;
+
     return (
       <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={onClose}>
         <View style={styles.modalContainer}>
@@ -105,7 +101,7 @@ export default class FileSaveModal extends Component {
           <TouchableOpacity
             disabled={!this.isSaveEnabled()}
             style={StyleSheet.flatten([styles.saveButton, this.isSaveEnabled() ? {} : styles.disabledSaveButton])}
-            onPress={() => this.saveFile(fileContents)}
+            onPress={() => this.saveFile()}
             accessibilityLabel="Save file"
           >
             <Text style={styles.saveButtonText}>Save</Text>
@@ -115,3 +111,7 @@ export default class FileSaveModal extends Component {
     );
   }
 }
+
+export default connect(null, dispatch => ({
+  saveFile: (fileName, fileContents, onClose) => dispatch(fileSaveSubmit(fileName, fileContents, onClose))
+}))(FileSaveModal);

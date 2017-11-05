@@ -42,7 +42,8 @@ exports[`MainScreen should render correctly 1`] = `
         testID={undefined}
       >
         <HeaderBar
-          generateCode={[Function]}
+          code="// Delete me and write some code!
+console.log(\\"Hello World!\\");"
           navigation={undefined}
           runCode={[Function]}
         />

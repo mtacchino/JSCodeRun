@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "build:ios":
-      "xcodebuild -configuration Release -project ios/JSCodeRun.xcodeproj -scheme JSCodeRun -sdk iphonesimulator -derivedDataPath ios/build | xcpretty",
+    "build:ios": "xcodebuild -configuration Release -project ios/JSCodeRun.xcodeproj -scheme JSCodeRun -sdk iphonesimulator -derivedDataPath ios/build | xcpretty",
     "build:android": "cd android && ./gradlew assembleRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -17,7 +16,10 @@
     "react-native": "^0.48.4",
     "react-native-device-info": "^0.11.0",
     "react-native-fs": "^2.8.1",
-    "react-navigation": "^1.0.0-beta.13"
+    "react-navigation": "^1.0.0-beta.13",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
@@ -26,6 +28,8 @@
   },
   "jest": {
     "preset": "react-native",
-    "transformIgnorePatterns": ["node_modules/(?!react-native|react-navigation)"]
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)"
+    ]
   }
 }

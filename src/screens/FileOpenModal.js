@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   TextInput,
@@ -15,6 +16,7 @@ import {
 } from 'react-native';
 import fs from 'react-native-fs';
 import ModalHeader from '../components/ModalHeader';
+import { fileDeleteSubmit, fileOpenSubmit } from '../reducers/fileSystem';
 
 const styles = StyleSheet.create({
   modalContainer: {
@@ -77,13 +79,11 @@ const styles = StyleSheet.create({
   },
   deleteButton: {
     justifyContent: 'center',
-    alignSelf: 'center',
-    alignItems: 'center',
     padding: 10,
     flexShrink: 1
   },
   deleteButtonImage: {
-    tintColor: '#a00e03',
+    tintColor: '#cc7832',
     width: 25,
     height: 25
   }
@@ -115,7 +115,7 @@ const ListWrap = () => <View style={styles.listWrap} />;
 
 const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
 
-export default class FileSaveModal extends Component {
+class FileOpenModal extends Component {
   state = { loading: true, files: [] };
 
   componentDidMount() {
@@ -143,22 +143,14 @@ export default class FileSaveModal extends Component {
       });
 
   openFile = fileName => {
-    const path = `${documentsDir}/${fileName}`;
-
-    fs
-      .readFile(path)
-      .then(contents => {
-        this.props.generateCode(contents);
-        this.props.onClose();
-      })
-      .catch(err => {
-        Alert.alert(err.code, err.message);
-      });
+    this.props.openFile(fileName, contents => {
+      this.props.generateCode(contents);
+      this.props.onClose();
+    });
   };
 
   displayDeleteFileAlert = fileName => {
     Alert.alert(`Are you sure you want to delete ${fileName}?`, null, [
-      ,
       {
         text: 'Cancel',
         style: 'cancel'
@@ -172,10 +164,8 @@ export default class FileSaveModal extends Component {
   };
 
   deleteFile = fileName => {
-    const path = `${documentsDir}/${fileName}`;
-
-    fs
-      .unlink(path)
+    this.props
+      .deleteFile(fileName)
       .then(this.readDir)
       .catch(err => {
         Alert.alert(err.code, err.message);
@@ -183,7 +173,7 @@ export default class FileSaveModal extends Component {
   };
 
   render() {
-    const { fileContents, onClose, generateCode } = this.props;
+    const { onClose } = this.props;
     return (
       <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={onClose}>
         <View style={styles.modalContainer}>
@@ -208,3 +198,8 @@ export default class FileSaveModal extends Component {
     );
   }
 }
+
+export default connect(null, dispatch => ({
+  deleteFile: fileName => dispatch(fileDeleteSubmit(fileName)),
+  openFile: (fileName, onClose) => dispatch(fileOpenSubmit(fileName, onClose))
+}))(FileOpenModal);

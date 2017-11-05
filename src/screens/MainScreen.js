@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, StatusBar } from 'react-native';
+import { connect } from 'react-redux';
 import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
 import HeaderBar from '../components/HeaderBar';
@@ -12,6 +13,7 @@ import AboutModal from '../screens/AboutModal';
 import FileSaveModal from '../screens/FileSaveModal';
 import FileOpenModal from '../screens/FileOpenModal';
 import { ScreenNames } from '../components/Navigator';
+import { editCode, fileOpenSuccess } from '../reducers/fileSystem';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class MainScreen extends Component {
+export class MainScreen extends Component {
   state = {
     code: defaultCode,
     output: [],
@@ -41,10 +43,12 @@ export default class MainScreen extends Component {
     this.setState({
       code
     });
+    this.props.editCode();
   };
 
-  generateCode = code => {
+  generateCode = (code, fileName) => {
     this.handleCodeChange(code);
+    this.props.fileOpenSuccess(code, '');
     this.onClearOutput();
   };
 
@@ -125,7 +129,7 @@ export default class MainScreen extends Component {
           <View style={styles.editorWrapper}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View>
-                <HeaderBar navigation={this.props.navigation} runCode={this.runCode} generateCode={this.generateCode} />
+                <HeaderBar navigation={this.props.navigation} runCode={this.runCode} code={this.state.code} />
                 {this.renderModal()}
                 <KeyboardAvoidingView behavior="height">
                   <CodeEditor code={this.state.code} handleCodeChange={this.handleCodeChange} />
@@ -148,3 +152,8 @@ export default class MainScreen extends Component {
     );
   }
 }
+
+export default connect(null, dispatch => ({
+  editCode: () => dispatch(editCode()),
+  fileOpenSuccess: (contents, fileName) => dispatch(fileOpenSuccess(contents, fileName))
+}))(MainScreen);

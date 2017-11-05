@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableOpacity, Button, Image, Platform } from 'react-native';
+import fs from 'react-native-fs';
+
+import { fileSaveSubmit } from '../reducers/fileSystem';
+import { ScreenNames } from './Navigator';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,9 +20,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 10
   },
-  headerText: {
-    fontSize: 22,
-    color: 'white'
+  saveButton: {
+    height: 30,
+    width: 30,
+    tintColor: 'white'
   },
   runButton: {
     height: 40,
@@ -27,19 +33,70 @@ const styles = StyleSheet.create({
     height: 35,
     width: 35,
     tintColor: 'white'
+  },
+  hamburgerContainer: {
+    flex: 1
+  },
+  saveContainer: {
+    padding: 5
+  },
+  headerText: {
+    fontSize: 22,
+    color: 'white',
+    textAlign: 'center',
+    flexGrow: 1
+  },
+  toolBar: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    flex: 1
   }
 });
 
-export default ({ navigation, runCode }) => (
-  <View style={styles.container}>
-    <View style={styles.headerBar}>
-      <TouchableOpacity onPress={() => navigation.navigate('DrawerOpen')}>
-        <Image style={styles.hamburger} source={require('../../assets/hamburger.png')} />
-      </TouchableOpacity>
-      <Text style={styles.headerText}>JS Code Run</Text>
-      <TouchableOpacity onPress={() => runCode()}>
-        <Image style={styles.runButton} source={require('../../assets/run.png')} />
-      </TouchableOpacity>
-    </View>
-  </View>
-);
+const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
+
+export class HeaderBar extends React.Component {
+  onQuickSave = () => {
+    if (!this.props.currentFile) {
+      this.props.navigation.navigate(ScreenNames.FILE_SAVE_AS_SCREEN);
+      return;
+    }
+    this.props.saveFile(this.props.currentFile, this.props.code);
+  };
+
+  render() {
+    const { navigation, runCode, currentFile } = this.props;
+    return (
+      <View style={styles.container}>
+        <View style={styles.headerBar}>
+          <TouchableOpacity style={styles.hamburgerContainer} onPress={() => navigation.navigate('DrawerOpen')}>
+            <Image style={styles.hamburger} source={require('../../assets/hamburger.png')} />
+          </TouchableOpacity>
+          <Text style={styles.headerText}>
+            {currentFile || 'JS Code Run'}
+            {currentFile && this.props.isEdited && '*'}
+          </Text>
+          <View style={styles.toolBar}>
+            <TouchableOpacity style={styles.saveContainer} onPress={() => this.onQuickSave()}>
+              <Image style={styles.saveButton} source={require('../../assets/save-icon.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => runCode()}>
+              <Image style={styles.runButton} source={require('../../assets/run.png')} />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    );
+  }
+}
+
+export default connect(
+  state => ({
+    currentFile: state.fileSystem.currentFile,
+    isEdited: state.fileSystem.isEdited
+  }),
+  dispatch => ({
+    saveFile: (fileName, fileContents) => dispatch(fileSaveSubmit(fileName, fileContents))
+  })
+)(HeaderBar);

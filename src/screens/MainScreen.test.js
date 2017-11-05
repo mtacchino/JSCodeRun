@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-import MainScreen from './MainScreen';
+import { MainScreen } from './MainScreen';
 
 jest.mock('../components/CodeEditor', () => 'CodeEditor');
 jest.mock('../components/Output', () => 'Output');

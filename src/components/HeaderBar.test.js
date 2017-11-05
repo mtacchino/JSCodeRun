@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-import HeaderBar from './HeaderBar';
+import { HeaderBar } from './HeaderBar';
 import exampleData from '../constants/examples';
 
 jest.mock('../constants/examples', () => [
@@ -9,21 +9,20 @@ jest.mock('../constants/examples', () => [
     runtimeComplexity: 'O(1)',
     spaceComplexity: 'O(n)',
     code: 'someCode();'
-  }, {
+  },
+  {
     key: 'Example 2',
     code: 'someMoreCode();'
-  },
-])
+  }
+]);
 
 describe('HeaderBar', () => {
   it('should render the Header Bar correctly', () => {
-    const rendered = renderer.create(
-      <HeaderBar 
-        navigation={{state: { routeName: 'Someroute' }}}
-        runCode={() => {}}
-        generateCode={() => {}}
-      />
-    ).toJSON();
+    const rendered = renderer
+      .create(
+        <HeaderBar navigation={{ state: { routeName: 'Someroute' } }} runCode={() => {}} generateCode={() => {}} />
+      )
+      .toJSON();
     expect(rendered).toMatchSnapshot();
   });
 });
