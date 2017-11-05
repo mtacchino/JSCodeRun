@@ -12,7 +12,7 @@ const FILE_OPEN_SUCCESS = 'FILE_OPEN_SUCCESS';
 const FILE_OPEN_FAILURE = 'FILE_OPEN_FAILURE';
 const EDIT_CODE = 'EDIT_CODE';
 
-const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
+const documentsDir = `${fs.DocumentDirectoryPath}/my-files`;
 
 // Action creators
 const fileSaveSuccess = fileName => ({
@@ -55,7 +55,8 @@ export const fileSaveSubmit = (fileName, fileContents, onClose) => {
 
   return dispatch =>
     fs
-      .writeFile(path, fileContents, 'utf8')
+      .mkdir(documentsDir)
+      .then(() => fs.writeFile(path, fileContents, 'utf8'))
       .then(success => {
         dispatch(fileSaveSuccess(fileName));
         onClose && onClose();

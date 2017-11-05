@@ -55,8 +55,6 @@ const styles = StyleSheet.create({
   }
 });
 
-const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
-
 export class HeaderBar extends React.Component {
   onQuickSave = () => {
     if (!this.props.currentFile) {

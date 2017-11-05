@@ -114,7 +114,7 @@ const ListItem = ({ item, onPress, onDelete }) => (
 const Separator = () => <View style={styles.separator} />;
 const ListWrap = () => <View style={styles.listWrap} />;
 
-const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
+const documentsDir = `${fs.DocumentDirectoryPath}/my-files`;
 
 class FileOpenModal extends Component {
   state = { loading: true, files: [] };

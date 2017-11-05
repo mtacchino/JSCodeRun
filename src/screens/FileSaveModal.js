@@ -61,8 +61,6 @@ const styles = StyleSheet.create({
   }
 });
 
-const documentsDir = `${Platform.OS === 'ios' ? fs.MainBundlePath : fs.DocumentDirectoryPath}/my-files`;
-
 class FileSaveModal extends Component {
   state = { fileName: '' };
 
