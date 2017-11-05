@@ -112,9 +112,9 @@ exports[`HeaderBar should render the Header Bar correctly 1`] = `
           source={1}
           style={
             Object {
-              "height": 30,
+              "height": 25,
               "tintColor": "white",
-              "width": 30,
+              "width": 25,
             }
           }
         />
@@ -147,8 +147,9 @@ exports[`HeaderBar should render the Header Bar correctly 1`] = `
           source={1}
           style={
             Object {
-              "height": 40,
-              "width": 40,
+              "height": 35,
+              "tintColor": "white",
+              "width": 35,
             }
           }
         />
