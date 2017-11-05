@@ -1,3 +1,4 @@
-export default fonts = {
-    fontFamily: 'HelveticaNeue-Light'
-  }
+export default {
+  fontFamily: 'HelveticaNeue',
+  letterSpacing: 1
+};

@@ -23,7 +23,9 @@ const styles = StyleSheet.create({
   },
   itemLabels: {
     fontSize: 22,
-    fontFamily: fonts.fontFamily
+    fontFamily: fonts.fontFamily,
+    fontWeight: '200',
+    letterSpacing: fonts.letterSpacing
   },
   footer: {
     position: 'absolute',

@@ -21,13 +21,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 10
   },
   saveButton: {
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
     tintColor: 'white'
   },
   runButton: {
-    height: 40,
-    width: 40
+    height: 35,
+    width: 35,
+    tintColor: 'white'
   },
   hamburger: {
     height: 35,

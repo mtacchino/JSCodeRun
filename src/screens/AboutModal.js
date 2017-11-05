@@ -47,7 +47,7 @@ export default props => (
       <ModalHeader onClose={props.onClose} title="ABOUT" />
       <ScrollView contentContainerStyle={styles.viewContentContainer} style={styles.viewContainer}>
         <View style={styles.paragraph}>
-          <Text style={styles.paragraphText}>JS Code Run helps you write and run JavaScript code snippets.</Text>
+          <Text style={styles.paragraphText}>Write and run JavaScript code snippets with JS Code Run.</Text>
         </View>
         <View style={styles.paragraph}>
           <Text style={styles.paragraphText}>Need ideas to get started? Check out the examples in the menu.</Text>

@@ -12,7 +12,8 @@ import {
   FlatList,
   TouchableHighlight,
   TouchableOpacity,
-  Image
+  Image,
+  ActivityIndicator
 } from 'react-native';
 import fs from 'react-native-fs';
 import ModalHeader from '../components/ModalHeader';
@@ -127,6 +128,7 @@ class FileOpenModal extends Component {
       .mkdir(documentsDir)
       .then(() => fs.readDir(documentsDir))
       .then(files => {
+        files.sort((a, b) => a.mtime < b.mtime);
         this.setState({
           loading: false,
           files: files.map(file => ({
@@ -136,10 +138,10 @@ class FileOpenModal extends Component {
         });
       })
       .catch(err => {
-        Alert.alert(err.code, err.message);
         this.setState({
           loading: false
         });
+        Alert.alert(err.code, err.message);
       });
 
   openFile = fileName => {
@@ -174,25 +176,35 @@ class FileOpenModal extends Component {
 
   render() {
     const { onClose } = this.props;
+
+    let ComponentBody = null;
+    if (this.state.loading) {
+      ComponentBody = ActivityIndicator;
+    } else if (!this.state.files.length) {
+      ComponentBody = (
+        <View style={styles.paragraph}>
+          <Text style={styles.paragraphText}>You don't have any saved files.</Text>
+        </View>
+      );
+    } else {
+      ComponentBody = (
+        <FlatList
+          data={this.state.files}
+          ItemSeparatorComponent={() => <Separator />}
+          ListHeaderComponent={() => <ListWrap />}
+          ListFooterComponent={() => <ListWrap />}
+          keyExtractor={item => item.name}
+          renderItem={({ item }) => (
+            <ListItem item={item} onPress={this.openFile} onDelete={this.displayDeleteFileAlert} />
+          )}
+        />
+      );
+    }
     return (
       <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={onClose}>
         <View style={styles.modalContainer}>
           <ModalHeader onClose={onClose} title="OPEN" />
-          {!this.state.files.length ? (
-            <View style={styles.paragraph}>
-              <Text style={styles.paragraphText}>You don't have any saved files.</Text>
-            </View>
-          ) : null}
-          <FlatList
-            data={this.state.files}
-            ItemSeparatorComponent={() => <Separator />}
-            ListHeaderComponent={() => <ListWrap />}
-            ListFooterComponent={() => <ListWrap />}
-            keyExtractor={item => item.name}
-            renderItem={({ item }) => (
-              <ListItem item={item} onPress={this.openFile} onDelete={this.displayDeleteFileAlert} />
-            )}
-          />
+          {ComponentBody}
         </View>
       </Modal>
     );

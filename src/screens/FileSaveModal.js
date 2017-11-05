@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     tintColor: 'white',
     width: 70,
     height: 70,
-    marginVertical: 40
+    marginVertical: 30
   },
   saveButton: {
     backgroundColor: '#71d5c3',
