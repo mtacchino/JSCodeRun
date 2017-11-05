@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, TouchableOpacity, Button, Image, Platform } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Button, Image, Platform, Keyboard } from 'react-native';
 import fs from 'react-native-fs';
 
 import { fileSaveSubmit } from '../reducers/fileSystem';
@@ -65,12 +65,17 @@ export class HeaderBar extends React.Component {
     this.props.saveFile(this.props.currentFile, this.props.code);
   };
 
+  openDrawer = () => {
+    Keyboard.dismiss();
+    this.props.navigation.navigate('DrawerOpen');
+  };
+
   render() {
-    const { navigation, runCode, currentFile } = this.props;
+    const { runCode, currentFile } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.headerBar}>
-          <TouchableOpacity style={styles.hamburgerContainer} onPress={() => navigation.navigate('DrawerOpen')}>
+          <TouchableOpacity style={styles.hamburgerContainer} onPress={this.openDrawer}>
             <Image style={styles.hamburger} source={require('../../assets/hamburger.png')} />
           </TouchableOpacity>
           <Text style={styles.headerText}>

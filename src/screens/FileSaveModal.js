@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 4,
     color: 'white',
     flex: 1,
-    height: 40,
     fontSize: 30,
     color: '#71d5c3'
   },
   fileExtention: {
     fontSize: 30,
-    color: '#71d5c3'
+    color: '#71d5c3',
+    alignSelf: 'flex-end'
   },
   saveIcon: {
     tintColor: 'white',
@@ -92,6 +92,7 @@ class FileSaveModal extends Component {
               maxLength={100}
               style={styles.textInput}
               autoCapitalize="none"
+              underlineColorAndroid="transparent"
               autoCorrect={false}
               onChangeText={fileName => this.setState({ fileName })}
               value={this.state.fileName}
