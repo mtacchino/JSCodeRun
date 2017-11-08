@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import reducer from './fileSystem';
 
 describe('reducer', () => {

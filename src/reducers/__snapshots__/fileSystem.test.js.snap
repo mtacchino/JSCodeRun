@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`fileSystem reducer should return state after edit code 1`] = `
+exports[`reducer should return state after edit code 1`] = `
 Object {
   "currentFile": "",
   "error": null,
@@ -8,21 +8,21 @@ Object {
 }
 `;
 
-exports[`fileSystem reducer should return state after file delete failure 1`] = `
+exports[`reducer should return state after file delete failure 1`] = `
 Object {
   "currentFile": "",
   "error": null,
 }
 `;
 
-exports[`fileSystem reducer should return state after file open failure 1`] = `
+exports[`reducer should return state after file open failure 1`] = `
 Object {
   "currentFile": "",
   "error": "open error",
 }
 `;
 
-exports[`fileSystem reducer should return state after file open success 1`] = `
+exports[`reducer should return state after file open success 1`] = `
 Object {
   "currentFile": undefined,
   "error": null,
@@ -30,14 +30,14 @@ Object {
 }
 `;
 
-exports[`fileSystem reducer should return state after file save failure 1`] = `
+exports[`reducer should return state after file save failure 1`] = `
 Object {
   "currentFile": "",
   "error": "save error",
 }
 `;
 
-exports[`fileSystem reducer should return state after file save success 1`] = `
+exports[`reducer should return state after file save success 1`] = `
 Object {
   "currentFile": undefined,
   "error": null,
@@ -45,7 +45,7 @@ Object {
 }
 `;
 
-exports[`fileSystem reducer should return the initial state 1`] = `
+exports[`reducer should return the initial state 1`] = `
 Object {
   "currentFile": "",
   "error": null,
