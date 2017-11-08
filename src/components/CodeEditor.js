@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TextInput, Text, StyleSheet } from 'react-native';
-import ColorParser from './ColorParser';
+import SyntaxHighlighter from './SyntaxHighlighter';
 
 const styles = StyleSheet.create({
   textInput: {
@@ -26,7 +26,7 @@ class CodeEditor extends Component {
         underlineColorAndroid="transparent"
         onChangeText={this.props.handleCodeChange}
       >
-        <ColorParser text={this.props.code} />
+        <SyntaxHighlighter text={this.props.code} />
       </TextInput>
     );
   }

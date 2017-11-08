@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ColorParser should colorize advanced-type keywords 1`] = `
+exports[`SyntaxHighlighter should colorize advanced-type keywords 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -49,7 +49,7 @@ exports[`ColorParser should colorize advanced-type keywords 1`] = `
 </Text>
 `;
 
-exports[`ColorParser should colorize basic keywords 1`] = `
+exports[`SyntaxHighlighter should colorize basic keywords 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -98,7 +98,7 @@ exports[`ColorParser should colorize basic keywords 1`] = `
 </Text>
 `;
 
-exports[`ColorParser should colorize comments 1`] = `
+exports[`SyntaxHighlighter should colorize comments 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -147,7 +147,7 @@ exports[`ColorParser should colorize comments 1`] = `
 </Text>
 `;
 
-exports[`ColorParser should colorize function-type keywords 1`] = `
+exports[`SyntaxHighlighter should colorize function-type keywords 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -196,7 +196,7 @@ exports[`ColorParser should colorize function-type keywords 1`] = `
 </Text>
 `;
 
-exports[`ColorParser should colorize numbers 1`] = `
+exports[`SyntaxHighlighter should colorize numbers 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -245,7 +245,7 @@ exports[`ColorParser should colorize numbers 1`] = `
 </Text>
 `;
 
-exports[`ColorParser should colorize strings 1`] = `
+exports[`SyntaxHighlighter should colorize strings 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -346,7 +346,7 @@ exports[`ColorParser should colorize strings 1`] = `
 </Text>
 `;
 
-exports[`ColorParser should keep other words default color 1`] = `
+exports[`SyntaxHighlighter should keep other words default color 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
