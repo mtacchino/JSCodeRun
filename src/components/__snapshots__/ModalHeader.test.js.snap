@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalHeader should render the ModalHeader correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#2b2b2b",
+      "flexDirection": "row",
+      "paddingBottom": 10,
+      "paddingHorizontal": 10,
+      "paddingTop": 22,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 2,
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontFamily": "HelveticaNeue",
+          "fontSize": 24,
+        }
+      }
+    >
+      test
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 30,
+        }
+      }
+    >
+      ✕
+    </Text>
+  </View>
+</View>
+`;

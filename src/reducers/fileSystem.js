@@ -25,7 +25,7 @@ const fileSaveFailure = err => ({
   err
 });
 
-const fileDeleteSuccess = (fileContents, fileName) => ({
+const fileDeleteSuccess = () => ({
   type: FILE_DELETE_SUCCESS
 });
 
@@ -72,7 +72,7 @@ export const fileDeleteSubmit = fileName => {
   return dispatch =>
     fs
       .unlink(path)
-      .then(fileDeleteSuccess)
+      .then(success => dispatch(fileDeleteSuccess(fileName)))
       .catch(err => {
         dispatch(fileDeleteFailure(err));
         Alert.alert(err.code, err.message);
@@ -95,7 +95,7 @@ export const fileOpenSubmit = (fileName, onClose) => {
 };
 
 //Reducer
-const initialState = { err: null, currentFile: '' };
+const initialState = { error: null, currentFile: '' };
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -103,6 +103,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isEdited: false,
+        error: null,
         currentFile: action.fileName
       };
     case FILE_SAVE_FAILURE:
@@ -119,6 +120,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isEdited: false,
+        error: null,
         currentFile: action.fileName
       };
     case FILE_OPEN_FAILURE:
