@@ -19,8 +19,8 @@ yarn install
 ```
 and
 ```
-yarn ios
-yarn android
+yarn run:ios
+yarn run:android
 ```
 to run the project on iOS or Android.
 
