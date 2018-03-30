@@ -27,7 +27,6 @@ exports[`Output should render the Output correctly 1`] = `
           <Text
             accessible={true}
             allowFontScaling={true}
-            disabled={false}
             ellipsizeMode="tail"
             style={
               Object {
@@ -44,7 +43,6 @@ exports[`Output should render the Output correctly 1`] = `
           <Text
             accessible={true}
             allowFontScaling={true}
-            disabled={false}
             ellipsizeMode="tail"
             style={
               Object {
@@ -71,6 +69,7 @@ exports[`Output should render the Output correctly 1`] = `
       accessibilityTraits={undefined}
       accessible={true}
       collapsable={undefined}
+      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -90,7 +89,11 @@ exports[`Output should render the Output correctly 1`] = `
       tvParallaxProperties={undefined}
     >
       <Image
-        source={1}
+        source={
+          Object {
+            "testUri": "../../../assets/delete.png",
+          }
+        }
         style={
           Object {
             "alignSelf": "flex-end",

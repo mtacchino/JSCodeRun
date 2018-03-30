@@ -42,12 +42,12 @@ exports[`MainScreen should render correctly 1`] = `
         testID={undefined}
       >
         <HeaderBar
-          code="// Delete me and write some code!
-console.log(\\"Hello World!\\");"
+          code=""
           navigation={undefined}
           runCode={[Function]}
         />
         <View
+          enabled={true}
           keyboardVerticalOffset={0}
           onLayout={[Function]}
           style={
@@ -58,8 +58,7 @@ console.log(\\"Hello World!\\");"
           }
         >
           <CodeEditor
-            code="// Delete me and write some code!
-console.log(\\"Hello World!\\");"
+            code=""
             handleCodeChange={[Function]}
           />
         </View>

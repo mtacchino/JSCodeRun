@@ -2,6 +2,7 @@
 
 exports[`CodeEditor should render correctly with code 1`] = `
 <TextInput
+  allowFontScaling={true}
   autoCapitalize="none"
   autoCorrect={false}
   blurOnSubmit={false}
@@ -23,13 +24,11 @@ exports[`CodeEditor should render correctly with code 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
   >
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -42,7 +41,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -55,7 +53,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -68,7 +65,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -81,7 +77,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -94,7 +89,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -107,7 +101,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -120,7 +113,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -133,7 +125,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -146,7 +137,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -159,7 +149,6 @@ exports[`CodeEditor should render correctly with code 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {

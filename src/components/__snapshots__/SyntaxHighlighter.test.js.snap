@@ -4,13 +4,11 @@ exports[`SyntaxHighlighter should colorize advanced-type keywords 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
 >
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -23,7 +21,6 @@ exports[`SyntaxHighlighter should colorize advanced-type keywords 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -36,7 +33,6 @@ exports[`SyntaxHighlighter should colorize advanced-type keywords 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -53,13 +49,11 @@ exports[`SyntaxHighlighter should colorize basic keywords 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
 >
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -72,7 +66,6 @@ exports[`SyntaxHighlighter should colorize basic keywords 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -85,7 +78,6 @@ exports[`SyntaxHighlighter should colorize basic keywords 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -102,13 +94,11 @@ exports[`SyntaxHighlighter should colorize comments 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
 >
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -121,7 +111,6 @@ exports[`SyntaxHighlighter should colorize comments 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -134,7 +123,6 @@ exports[`SyntaxHighlighter should colorize comments 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -151,13 +139,11 @@ exports[`SyntaxHighlighter should colorize function-type keywords 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
 >
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -170,7 +156,6 @@ exports[`SyntaxHighlighter should colorize function-type keywords 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -183,7 +168,6 @@ exports[`SyntaxHighlighter should colorize function-type keywords 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -200,13 +184,11 @@ exports[`SyntaxHighlighter should colorize numbers 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
 >
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -219,7 +201,6 @@ exports[`SyntaxHighlighter should colorize numbers 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -232,7 +213,6 @@ exports[`SyntaxHighlighter should colorize numbers 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -249,13 +229,11 @@ exports[`SyntaxHighlighter should colorize strings 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
 >
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -268,7 +246,6 @@ exports[`SyntaxHighlighter should colorize strings 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -281,7 +258,6 @@ exports[`SyntaxHighlighter should colorize strings 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -294,7 +270,6 @@ exports[`SyntaxHighlighter should colorize strings 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -307,7 +282,6 @@ exports[`SyntaxHighlighter should colorize strings 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -320,7 +294,6 @@ exports[`SyntaxHighlighter should colorize strings 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -333,7 +306,6 @@ exports[`SyntaxHighlighter should colorize strings 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {
@@ -350,13 +322,11 @@ exports[`SyntaxHighlighter should keep other words default color 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
 >
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Object {

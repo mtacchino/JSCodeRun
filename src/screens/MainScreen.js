@@ -54,9 +54,9 @@ export class MainScreen extends Component {
     this.saveDraft(code);
   };
 
-  async saveDraft() {
+  saveDraft() {
     try {
-      await AsyncStorage.setItem('@JSCodeRun:draftCode', this.state.code);
+      AsyncStorage.setItem('@JSCodeRun:draftCode', this.state.code);
     } catch (error) {
       // Error saving code to local storage. Eat it.
     }
@@ -81,14 +81,14 @@ export class MainScreen extends Component {
 
     console.log = message => {
       output.push({
-        message: JSON.stringify(message),
+        message: typeof message === 'string' ? message : JSON.stringify(message),
         status: 'OK'
       });
       //log(arguments);
     };
     console.error = message => {
       output.push({
-        message: JSON.stringify(message),
+        message: typeof message === 'string' ? message : JSON.stringify(message),
         status: 'ERROR'
       });
     };

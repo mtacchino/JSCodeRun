@@ -37,7 +37,6 @@ exports[`ModalHeader should render the ModalHeader correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -56,6 +55,7 @@ exports[`ModalHeader should render the ModalHeader correctly 1`] = `
     accessibilityTraits={undefined}
     accessible={true}
     collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
     isTVSelectable={true}
     nativeID={undefined}
@@ -80,7 +80,6 @@ exports[`ModalHeader should render the ModalHeader correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
