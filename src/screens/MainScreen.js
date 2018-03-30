@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, StatusBar } from 'react-native';
+import { StyleSheet,
+  View,
+  Keyboard,
+  TouchableWithoutFeedback,
+  KeyboardAvoidingView,
+  StatusBar,
+  AsyncStorage
+} from 'react-native';
 import { connect } from 'react-redux';
 import CodeEditor from '../components/CodeEditor';
 import Output from '../components/Output';
@@ -34,7 +41,7 @@ const styles = StyleSheet.create({
 
 export class MainScreen extends Component {
   state = {
-    code: defaultCode,
+    code: '',
     output: [],
     outputHeight: 200
   };
@@ -44,7 +51,16 @@ export class MainScreen extends Component {
       code
     });
     this.props.editCode();
+    this.saveDraft(code);
   };
+
+  async saveDraft() {
+    try {
+      await AsyncStorage.setItem('@JSCodeRun:draftCode', this.state.code);
+    } catch (error) {
+      // Error saving code to local storage. Eat it.
+    }
+  }
 
   generateCode = (code, fileName) => {
     this.handleCodeChange(code);
@@ -65,14 +81,14 @@ export class MainScreen extends Component {
 
     console.log = message => {
       output.push({
-        message,
+        message: JSON.stringify(message),
         status: 'OK'
       });
       //log(arguments);
     };
     console.error = message => {
       output.push({
-        message,
+        message: JSON.stringify(message),
         status: 'ERROR'
       });
     };
@@ -101,6 +117,22 @@ export class MainScreen extends Component {
       });
       keyboardDidShowListener.remove();
     });
+
+    this.loadDraft();
+  }
+
+  async loadDraft() {
+    try {
+      const draftCode = await AsyncStorage.getItem('@JSCodeRun:draftCode');
+      this.setState({
+        code: draftCode || defaultCode
+      });
+    } catch (error) {
+      console.log('Could not retrieve from local storage. Get default code: ', error)      
+      this.setState({
+        code: defaultCode
+      });
+    }
   }
 
   renderModal() {
