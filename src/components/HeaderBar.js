@@ -9,8 +9,7 @@ import { ScreenNames } from './Navigator';
 const styles = StyleSheet.create({
   container: {
     height: 55,
-    width: '100%',
-    marginTop: Platform.OS === 'ios' ? 20 : 0
+    width: '100%'
   },
   headerBar: {
     flex: 1,
