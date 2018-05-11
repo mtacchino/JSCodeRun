@@ -102,8 +102,8 @@ android {
         applicationId "me.tacchino.jscoderunner"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 15
-        versionName "1.2.1"
+        versionCode 16
+        versionName "1.2.2"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }

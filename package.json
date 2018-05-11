@@ -1,7 +1,8 @@
 {
   "name": "jscoderun",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "scripts": {
+    "start": "react-native start",
     "run:ios": "react-native run-ios",
     "run:android": "react-native run-android",
     "build:ios": "xcodebuild -configuration Release -project ios/JSCodeRun.xcodeproj -scheme JSCodeRun -sdk iphoneos -derivedDataPath ios/build | xcpretty",

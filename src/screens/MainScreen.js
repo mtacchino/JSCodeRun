@@ -81,14 +81,14 @@ export class MainScreen extends Component {
 
     console.log = message => {
       output.push({
-        message: typeof message === 'string' ? message : JSON.stringify(message),
+        message: this.formatConsoleMessage(message),
         status: 'OK'
       });
       //log(arguments);
     };
     console.error = message => {
       output.push({
-        message: typeof message === 'string' ? message : JSON.stringify(message),
+        message: this.formatConsoleMessage(message),
         status: 'ERROR'
       });
     };
@@ -109,6 +109,30 @@ export class MainScreen extends Component {
       output
     });
   };
+
+  formatConsoleMessage = message => {
+    if (Array.isArray(message)) {
+      let str = '[';
+      message.forEach((m, index) => {
+        str += `${this.formatConsoleMessage(m)}`;
+        if (index < message.length - 1) {
+          str += ', '
+        }
+      });
+      return str + ']';
+    } else if (typeof message === 'object') {
+      let str = '{';
+      Object.keys(message).forEach((key, index) => {
+        str += `"${key}": ${this.formatConsoleMessage(message[key])}`;
+        if (index < Object.keys(message).length - 1) {
+          str += ', '
+        }
+      });
+      return str + '}';
+    } else {
+      return typeof message === 'string' ? `"${message}"` : String(message);
+    }
+  }
 
   componentWillMount() {
     let keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', event => {

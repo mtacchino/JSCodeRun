@@ -13,14 +13,14 @@ describe('MainScreen', () => {
   });
 
   describe('runCode', () => {
-    it('should produce an array of a single output when code is logged', () => {
+    it('should produce a single output when code is logged', () => {
       const instance = renderer.create(<MainScreen />).getInstance();
       instance.setState({
         code: 'console.log("Test output")'
       });
       const expected = [
         {
-          message: 'Test output',
+          message: '"Test output"',
           status: 'OK'
         }
       ];
@@ -35,11 +35,11 @@ describe('MainScreen', () => {
       });
       const expected = [
         {
-          message: 'Test output',
+          message: '"Test output"',
           status: 'OK'
         },
         {
-          message: 'More output',
+          message: '"More output"',
           status: 'OK'
         }
       ];
@@ -47,7 +47,7 @@ describe('MainScreen', () => {
       expect(instance.state.output).toEqual(expected);
     });
 
-    it('should produce an array of a multiple error outputs when code errors', () => {
+    it('should produce an error output when code errors', () => {
       const instance = renderer.create(<MainScreen />).getInstance();
       instance.setState({
         code: 'badcode'
@@ -56,6 +56,81 @@ describe('MainScreen', () => {
         {
           message: 'ReferenceError: badcode is not defined',
           status: 'ERROR'
+        }
+      ];
+      instance.runCode();
+      expect(instance.state.output).toEqual(expected);
+    });
+
+    it('should produce Infinity when 1/0 is logged', () => {
+      const instance = renderer.create(<MainScreen />).getInstance();
+      instance.setState({
+        code: 'console.log(1/0)'
+      });
+      const expected = [
+        {
+          message: 'Infinity',
+          status: 'OK'
+        }
+      ];
+      instance.runCode();
+      expect(instance.state.output).toEqual(expected);
+    });
+
+    it('should produce NaN when undefined/1 is logged', () => {
+      const instance = renderer.create(<MainScreen />).getInstance();
+      instance.setState({
+        code: 'console.log(undefined/1)'
+      });
+      const expected = [
+        {
+          message: 'NaN',
+          status: 'OK'
+        }
+      ];
+      instance.runCode();
+      expect(instance.state.output).toEqual(expected);
+    });
+
+    it('should produce an object when one is logged', () => {
+      const instance = renderer.create(<MainScreen />).getInstance();
+      instance.setState({
+        code: 'console.log({ a: 1, b: NaN, c: { d: undefined, "e": "hello" } })'
+      });
+      const expected = [
+        {
+          message: '{"a": 1, "b": NaN, "c": {"d": undefined, "e": "hello"}}',
+          status: 'OK'
+        }
+      ];
+      instance.runCode();
+      expect(instance.state.output).toEqual(expected);
+    });
+
+    it('should produce an array when one is logged', () => {
+      const instance = renderer.create(<MainScreen />).getInstance();
+      instance.setState({
+        code: 'console.log([1, 2, 3])'
+      });
+      const expected = [
+        {
+          message: '[1, 2, 3]',
+          status: 'OK'
+        }
+      ];
+      instance.runCode();
+      expect(instance.state.output).toEqual(expected);
+    });
+
+    it('should produce an object with arrays when one is logged', () => {
+      const instance = renderer.create(<MainScreen />).getInstance();
+      instance.setState({
+        code: 'console.log([{a:1, b:[{c:[3]},5]}, 3,{}])'
+      });
+      const expected = [
+        {
+          message: '[{"a": 1, "b": [{"c": [3]}, 5]}, 3, {}]',
+          status: 'OK'
         }
       ];
       instance.runCode();
