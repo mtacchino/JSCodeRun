@@ -13,7 +13,8 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   Image,
-  ActivityIndicator
+  ActivityIndicator,
+  SafeAreaView
 } from 'react-native';
 import fs from 'react-native-fs';
 import ModalHeader from '../components/ModalHeader';
@@ -22,7 +23,7 @@ import { fileDeleteSubmit, fileOpenSubmit } from '../reducers/fileSystem';
 const styles = StyleSheet.create({
   modalContainer: {
     height: '100%',
-    backgroundColor: '#444',
+    backgroundColor: '#2b2b2b',
     flex: 1
   },
   viewContentContainer: {
@@ -40,10 +41,6 @@ const styles = StyleSheet.create({
   },
   listWrap: {
     height: 15
-  },
-  modalContainer: {
-    height: '100%',
-    backgroundColor: '#444'
   },
   listItem: {
     paddingVertical: 15,
@@ -202,10 +199,10 @@ class FileOpenModal extends Component {
     }
     return (
       <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={onClose}>
-        <View style={styles.modalContainer}>
+        <SafeAreaView style={styles.modalContainer}>
           <ModalHeader onClose={onClose} title="OPEN" />
           {ComponentBody}
-        </View>
+        </SafeAreaView>
       </Modal>
     );
   }

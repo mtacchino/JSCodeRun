@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet,
+import {
+  StyleSheet,
   View,
   Keyboard,
   TouchableWithoutFeedback,
@@ -116,7 +117,7 @@ export class MainScreen extends Component {
       message.forEach((m, index) => {
         str += `${this.formatConsoleMessage(m)}`;
         if (index < message.length - 1) {
-          str += ', '
+          str += ', ';
         }
       });
       return str + ']';
@@ -125,14 +126,14 @@ export class MainScreen extends Component {
       Object.keys(message).forEach((key, index) => {
         str += `"${key}": ${this.formatConsoleMessage(message[key])}`;
         if (index < Object.keys(message).length - 1) {
-          str += ', '
+          str += ', ';
         }
       });
       return str + '}';
     } else {
       return typeof message === 'string' ? `"${message}"` : String(message);
     }
-  }
+  };
 
   componentWillMount() {
     let keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', event => {
@@ -152,7 +153,7 @@ export class MainScreen extends Component {
         code: draftCode || defaultCode
       });
     } catch (error) {
-      console.log('Could not retrieve from local storage. Get default code: ', error)      
+      console.log('Could not retrieve from local storage. Get default code: ', error);
       this.setState({
         code: defaultCode
       });

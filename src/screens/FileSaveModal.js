@@ -10,7 +10,8 @@ import {
   Platform,
   Alert,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import fs from 'react-native-fs';
 import ModalHeader from '../components/ModalHeader';
@@ -19,7 +20,7 @@ import { fileSaveSubmit } from '../reducers/fileSystem';
 const styles = StyleSheet.create({
   modalContainer: {
     height: '100%',
-    backgroundColor: '#444',
+    backgroundColor: '#2b2b2b',
     flex: 1,
     alignItems: 'center'
   },
@@ -82,7 +83,7 @@ class FileSaveModal extends Component {
 
     return (
       <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={onClose}>
-        <View style={styles.modalContainer}>
+        <SafeAreaView style={styles.modalContainer}>
           <ModalHeader onClose={onClose} title="SAVE AS" />
           <Image source={require('../../assets/save-icon.png')} style={styles.saveIcon} />
           <View style={styles.containerView}>
@@ -105,7 +106,7 @@ class FileSaveModal extends Component {
           >
             <Text style={styles.saveButtonText}>Save</Text>
           </TouchableOpacity>
-        </View>
+        </SafeAreaView>
       </Modal>
     );
   }

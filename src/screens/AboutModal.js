@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Modal, Image, Linking } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Modal, Image, Linking, SafeAreaView } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 
 import ModalHeader from '../components/ModalHeader';
@@ -7,7 +7,7 @@ import ModalHeader from '../components/ModalHeader';
 const styles = StyleSheet.create({
   modalContainer: {
     height: '100%',
-    backgroundColor: '#444'
+    backgroundColor: '#2b2b2b'
   },
   viewContainer: {
     flex: 1,
@@ -43,7 +43,7 @@ const appVersion = DeviceInfo.getVersion();
 
 export default props => (
   <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={props.onClose}>
-    <View style={styles.modalContainer}>
+    <SafeAreaView style={styles.modalContainer}>
       <ModalHeader onClose={props.onClose} title="ABOUT" />
       <ScrollView contentContainerStyle={styles.viewContentContainer} style={styles.viewContainer}>
         <View style={styles.paragraph}>
@@ -67,6 +67,6 @@ export default props => (
           <Text style={styles.legalText}>Copyright © Matt Tacchino {currentYear}</Text>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   </Modal>
 );

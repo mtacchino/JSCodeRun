@@ -8,7 +8,8 @@ import {
   Modal,
   FlatList,
   Button,
-  Image
+  Image,
+  SafeAreaView
 } from 'react-native';
 import ModalHeader from '../components/ModalHeader';
 import codeExamples from '../constants/examples.js';
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     height: '100%',
-    backgroundColor: '#444'
+    backgroundColor: '#2b2b2b'
   },
   listItem: {
     paddingHorizontal: 25,
@@ -61,7 +62,7 @@ const ListWrap = () => <View style={styles.listWrap} />;
 
 export default props => (
   <Modal animationType="slide" transparent={false} hardwareAccelerated onRequestClose={props.onClose}>
-    <View style={styles.modalContainer}>
+    <SafeAreaView style={styles.modalContainer}>
       <ModalHeader onClose={props.onClose} title="EXAMPLES" />
       <FlatList
         data={codeExamples}
@@ -79,6 +80,6 @@ export default props => (
           />
         )}
       />
-    </View>
+    </SafeAreaView>
   </Modal>
 );

@@ -1,11 +1,12 @@
 {
   "name": "jscoderun",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "scripts": {
     "start": "react-native start",
     "run:ios": "react-native run-ios",
     "run:android": "react-native run-android",
-    "build:ios": "xcodebuild -configuration Release -project ios/JSCodeRun.xcodeproj -scheme JSCodeRun -sdk iphoneos -derivedDataPath ios/build | xcpretty",
+    "build:ios":
+      "xcodebuild -configuration Release -project ios/JSCodeRun.xcodeproj -scheme JSCodeRun -sdk iphoneos -derivedDataPath ios/build | xcpretty",
     "build:android": "cd android && ./gradlew assembleRelease",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
@@ -28,8 +29,6 @@
   },
   "jest": {
     "preset": "react-native",
-    "transformIgnorePatterns": [
-      "node_modules/(?!react-native|react-navigation)"
-    ]
+    "transformIgnorePatterns": ["node_modules/(?!react-native|react-navigation)"]
   }
 }
