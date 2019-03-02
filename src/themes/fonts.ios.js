@@ -1,4 +1,4 @@
 export default {
-  fontFamily: 'HelveticaNeue',
+  fontFamily: 'Menlo-Regular',
   letterSpacing: 1
 };
